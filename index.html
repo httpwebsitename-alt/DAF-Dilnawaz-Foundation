@@ -1,778 +1,292 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Dilnawaz Foundation — serving communities, supporting people in need, and creating meaningful change.">
-
-    <meta name="keywords"
-          content="Dilnawaz Foundation, DAF, Pakistan, charity, foundation, welfare, community support">
-
-    <meta name="author"
-          content="Dilnawaz Foundation">
-
-    <title>Dilnawaz Foundation | Together We Can Make a Difference</title>
-
-    <link rel="stylesheet"
-          href="style.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilnawaz Foundation (DAF)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            glass: {
+              light: 'rgba(255, 255, 255, 0.65)',
+              dark: 'rgba(23, 23, 33, 0.75)',
+              borderLight: 'rgba(255, 255, 255, 0.4)',
+              borderDark: 'rgba(255, 255, 255, 0.08)'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+<body class="bg-slate-100 dark:bg-[#0d0f17] text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans selection:bg-purple-500 selection:text-white">
 
+  <!-- Background Glowing Orbs for Glassmorphism Effect -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-[120px]"></div>
+    <div class="absolute top-1/3 -right-40 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]"></div>
+    <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-pink-600/20 rounded-full blur-[120px]"></div>
+  </div>
 
-<body>
+  <!-- Top Glass Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/60 dark:bg-[#121522]/70 border-b border-slate-200/50 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Logo & Title -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/30">
+          DAF
+        </div>
+        <div>
+          <h1 class="font-bold text-lg tracking-tight bg-gradient-to-r from-purple-600 via-indigo-500 to-pink-500 bg-clip-text text-transparent">
+            Dilnawaz Foundation
+          </h1>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 -mt-1 font-medium">Empowering Communities & Healthcare</p>
+        </div>
+      </div>
 
+      <!-- Center Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-1 bg-slate-200/50 dark:bg-white/5 p-1 rounded-full border border-slate-300/40 dark:border-white/10">
+        <a href="index.html" class="px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-purple-600/30 text-purple-600 dark:text-purple-300 shadow-sm transition-all">Home</a>
+        <a href="about.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">About Us</a>
+        <a href="projects.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Projects</a>
+        <a href="gallery.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 dark:hover:text-purple-400 transition-colors">Contact</a>
+      </nav>
 
-<!-- ================= HEADER ================= -->
-
-<header class="header" id="header">
-
-    <div class="container nav-container">
-
-        <a href="index.html" class="logo">
-
-            <img src="assets/logo.png"
-                 alt="Dilnawaz Foundation Logo">
-
-            <div class="logo-text">
-                <strong>DILNAWAZ</strong>
-                <span>FOUNDATION</span>
-            </div>
-
+      <!-- Right Action Button -->
+      <div class="flex items-center gap-3">
+        <a href="donate.html" class="px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-medium text-sm shadow-md shadow-purple-500/25 transition-all transform hover:-translate-y-0.5">
+          Donate Now
         </a>
-
-
-        <nav class="nav" id="nav">
-
-            <a href="index.html" class="active">Home</a>
-
-            <a href="about.html">About</a>
-
-            <a href="projects.html">Our Work</a>
-
-            <a href="gallery.html">Gallery</a>
-
-            <a href="donate.html">Donate</a>
-
-            <a href="contact.html">Contact</a>
-
-        </nav>
-
-
-        <a href="donate.html"
-           class="nav-donate">
-            Donate Now
-        </a>
-
-
-        <button class="menu-toggle"
-                id="menuToggle"
-                aria-label="Open Menu">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
+      </div>
     </div>
+  </header>
 
-</header>
+  <div class="flex flex-1 relative">
 
+    <!-- Left Floating Bar (Theme Switcher & Quick Navigation) -->
+    <aside class="w-16 md:w-20 bg-white/40 dark:bg-[#121522]/50 backdrop-blur-xl border-r border-slate-200/50 dark:border-white/10 flex flex-col items-center py-6 gap-6 transition-all z-30">
+      
+      <!-- Theme Switcher Button -->
+      <button id="themeToggleBtn" title="Toggle Theme" class="p-3 rounded-2xl bg-white/80 dark:bg-slate-800/80 hover:bg-purple-500 hover:text-white dark:hover:bg-purple-600 text-slate-700 dark:text-slate-200 shadow-md border border-slate-200/60 dark:border-white/10 transition-all group">
+        <i data-lucide="sun" class="w-5 h-5 hidden dark:block group-hover:rotate-45 transition-transform"></i>
+        <i data-lucide="moon" class="w-5 h-5 block dark:hidden group-hover:-rotate-12 transition-transform"></i>
+      </button>
 
+      <div class="w-8 h-[1px] bg-slate-300 dark:bg-white/10 my-1"></div>
 
-<!-- ================= HERO ================= -->
+      <!-- Quick Left Nav Icons -->
+      <a href="index.html" class="p-3 rounded-2xl bg-purple-600 text-white shadow-lg shadow-purple-500/30 transition-all" title="Dashboard Home">
+        <i data-lucide="layout-dashboard" class="w-5 h-5"></i>
+      </a>
+      <a href="projects.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 hover:text-purple-600 transition-all" title="Projects">
+        <i data-lucide="folder-kanban" class="w-5 h-5"></i>
+      </a>
+      <a href="gallery.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 hover:text-purple-600 transition-all" title="Media & Videos">
+        <i data-lucide="play-circle" class="w-5 h-5"></i>
+      </a>
+      <a href="about.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 hover:text-purple-600 transition-all" title="About">
+        <i data-lucide="info" class="w-5 h-5"></i>
+      </a>
+      <a href="contact.html" class="mt-auto p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 hover:text-purple-600 transition-all" title="Support">
+        <i data-lucide="life-buoy" class="w-5 h-5"></i>
+      </a>
+    </aside>
 
-<section class="hero">
-
-    <div class="hero-overlay"></div>
-
-    <div class="container hero-content">
-
-        <div class="hero-text">
-
-            <span class="eyebrow">
-                DILNAWAZ FOUNDATION
-            </span>
-
-            <h1>
-                Together,
-                <span>We Can Make a Difference.</span>
-            </h1>
-
-            <p>
-                Supporting communities, helping people in need,
-                and turning compassion into meaningful action.
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="donate.html"
-                   class="btn btn-primary">
-
-                    <i class="fa-solid fa-heart"></i>
-                    Donate Now
-
-                </a>
-
-
-                <a href="projects.html"
-                   class="btn btn-light">
-
-                    Explore Our Work
-                    <i class="fa-solid fa-arrow-right"></i>
-
-                </a>
-
-            </div>
-
+    <!-- Main Content Area -->
+    <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
+      
+      <!-- Top Title Bar & Search -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Saved Resources & Knowledge Base</h2>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Medical procedures, surgical guidelines, and foundation documentation.</p>
         </div>
 
-    </div>
-
-</section>
-
-
-
-<!-- ================= INTRO ================= -->
-
-<section class="section intro-section">
-
-    <div class="container intro-grid">
-
-        <div class="intro-image">
-
-            <img src="assets/about.jpg"
-                 alt="Dilnawaz Foundation community work">
-
-            <div class="experience-card">
-
-                <strong>3+</strong>
-
-                <span>
-                    Years of
-                    Community Service
-                </span>
-
-            </div>
-
+        <!-- Filter Tabs inspired by Image -->
+        <div class="flex items-center gap-2 bg-white/60 dark:bg-[#121522]/60 p-1.5 rounded-2xl backdrop-blur-md border border-slate-200/50 dark:border-white/10 overflow-x-auto">
+          <button class="px-4 py-1.5 rounded-xl text-xs font-semibold bg-purple-600 text-white shadow-md">All</button>
+          <button class="px-4 py-1.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-white/10 transition-colors">Videos</button>
+          <button class="px-4 py-1.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-white/10 transition-colors">Docs</button>
+          <button class="px-4 py-1.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-white/10 transition-colors">Links</button>
         </div>
+      </div>
 
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-        <div class="intro-content">
+        <!-- Grid of Saved Items (3 columns on large screens) -->
+        <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-5">
 
-            <span class="section-label">
-                WHO WE ARE
-            </span>
-
-            <h2>
-                Compassion into
-                <span>Action</span>
-            </h2>
-
-            <p>
-                Dilnawaz Foundation is a community-focused
-                organization working to support people in need
-                and contribute to the wellbeing of communities.
-            </p>
-
-            <p>
-                Through welfare initiatives, community activities,
-                educational support, food assistance and other
-                humanitarian efforts, we aim to make a practical
-                difference in people's lives.
-            </p>
-
-
-            <a href="about.html"
-               class="text-link">
-
-                Learn More About Us
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= IMPACT ================= -->
-
-<section class="impact-section">
-
-    <div class="container">
-
-        <div class="section-heading center">
-
-            <span class="section-label light">
-                OUR JOURNEY
-            </span>
-
-            <h2>
-                Making a Difference,
-                <span>One Step at a Time</span>
-            </h2>
-
-            <p>
-                Our work continues to grow through community
-                participation, volunteers and supporters.
-            </p>
-
-        </div>
-
-
-        <div class="impact-grid">
-
-            <div class="impact-card">
-
-                <i class="fa-solid fa-calendar-days"></i>
-
-                <strong>3+</strong>
-
-                <span>Years of Service</span>
-
-            </div>
-
-
-            <div class="impact-card">
-
-                <i class="fa-solid fa-people-group"></i>
-
-                <strong>Community</strong>
-
-                <span>Focused Initiatives</span>
-
-            </div>
-
-
-            <div class="impact-card">
-
-                <i class="fa-solid fa-hand-holding-heart"></i>
-
-                <strong>Real</strong>
-
-                <span>Community Support</span>
-
-            </div>
-
-
-            <div class="impact-card">
-
-                <i class="fa-solid fa-users"></i>
-
-                <strong>Volunteers</strong>
-
-                <span>Working Together</span>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= OUR WORK ================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
+          <!-- Card 1: Video -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
             <div>
-
-                <span class="section-label">
-                    WHAT WE DO
-                </span>
-
-                <h2>
-                    Areas Where We
-                    <span>Serve</span>
-                </h2>
-
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-purple-900 to-indigo-800 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="absolute inset-0 bg-purple-500/20 blur-xl"></div>
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-6 h-6 fill-current"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Brain Aneurysm Clipping with Leica M530</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Leica Microsystems Surgical Guide</p>
             </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved Mar 3</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+            </div>
+          </div>
 
-            <a href="projects.html"
-               class="text-link">
-
-                View All Work
-                <i class="fa-solid fa-arrow-right"></i>
-
-            </a>
-
-        </div>
-
-
-        <div class="service-grid">
-
-
-            <article class="service-card">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-
-                <h3>Education Support</h3>
-
-                <p>
-                    Supporting educational needs and helping
-                    deserving students move forward.
-                </p>
-
-                <a href="projects.html">
-                    Learn More
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-bowl-food"></i>
-                </div>
-
-                <h3>Food & Essentials</h3>
-
-                <p>
-                    Helping families and individuals with
-                    essential food and basic necessities.
-                </p>
-
-                <a href="projects.html">
-                    Learn More
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <h3>Community Support</h3>
-
-                <p>
-                    Working with communities to identify needs
-                    and provide meaningful assistance.
-                </p>
-
-                <a href="projects.html">
-                    Learn More
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </article>
-
-
-
-            <article class="service-card">
-
-                <div class="service-icon">
-                    <i class="fa-solid fa-kit-medical"></i>
-                </div>
-
-                <h3>Emergency Relief</h3>
-
-                <p>
-                    Supporting people and families during
-                    difficult or emergency situations.
-                </p>
-
-                <a href="projects.html">
-                    Learn More
-                    <i class="fa-solid fa-arrow-right"></i>
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= PROJECTS ================= -->
-
-<section class="section projects-preview">
-
-    <div class="container">
-
-        <div class="section-heading">
-
+          <!-- Card 2: Document -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
             <div>
-
-                <span class="section-label">
-                    OUR WORK
-                </span>
-
-                <h2>
-                    Recent
-                    <span>Initiatives</span>
-                </h2>
-
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-indigo-900 to-blue-800 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="file-text" class="w-6 h-6"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Doc</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Q2 Design & Healthcare Review Findings</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Workspace Studio Guidelines</p>
             </div>
-
-            <a href="projects.html"
-               class="btn btn-outline">
-
-                All Projects
-
-            </a>
-
-        </div>
-
-
-        <div class="project-grid">
-
-
-            <article class="project-card">
-
-                <div class="project-image">
-
-                    <img src="assets/project1.jpg"
-                         alt="Community project">
-
-                    <span>
-                        Community Support
-                    </span>
-
-                </div>
-
-                <div class="project-body">
-
-                    <small>
-                        DILNAWAZ FOUNDATION
-                    </small>
-
-                    <h3>
-                        Community Support Initiative
-                    </h3>
-
-                    <p>
-                        A community-focused initiative designed
-                        to support people facing difficult circumstances.
-                    </p>
-
-                    <a href="projects.html">
-                        Read More
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="project-card">
-
-                <div class="project-image">
-
-                    <img src="assets/project2.jpg"
-                         alt="Food distribution project">
-
-                    <span>
-                        Food Support
-                    </span>
-
-                </div>
-
-                <div class="project-body">
-
-                    <small>
-                        DILNAWAZ FOUNDATION
-                    </small>
-
-                    <h3>
-                        Food & Essentials Drive
-                    </h3>
-
-                    <p>
-                        Providing essential support to deserving
-                        families through community participation.
-                    </p>
-
-                    <a href="projects.html">
-                        Read More
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-            </article>
-
-
-
-            <article class="project-card">
-
-                <div class="project-image">
-
-                    <img src="assets/project3.jpg"
-                         alt="Education support project">
-
-                    <span>
-                        Education
-                    </span>
-
-                </div>
-
-                <div class="project-body">
-
-                    <small>
-                        DILNAWAZ FOUNDATION
-                    </small>
-
-                    <h3>
-                        Education Support Initiative
-                    </h3>
-
-                    <p>
-                        Supporting educational opportunities for
-                        deserving students and young people.
-                    </p>
-
-                    <a href="projects.html">
-                        Read More
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= CTA ================= -->
-
-<section class="cta-section">
-
-    <div class="container cta-content">
-
-        <div>
-
-            <span class="section-label light">
-                GET INVOLVED
-            </span>
-
-            <h2>
-                Your Support Can
-                Create Hope.
-            </h2>
-
-            <p>
-                Whether you volunteer, donate, or simply share
-                our work, your contribution can help us reach
-                more people.
-            </p>
-
-        </div>
-
-
-        <div class="cta-buttons">
-
-            <a href="donate.html"
-               class="btn btn-white">
-
-                Donate Now
-
-            </a>
-
-            <a href="contact.html"
-               class="btn btn-transparent">
-
-                Become a Volunteer
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer class="footer">
-
-    <div class="container footer-grid">
-
-
-        <div class="footer-brand">
-
-            <a href="index.html"
-               class="footer-logo">
-
-                <img src="assets/logo.png"
-                     alt="Dilnawaz Foundation">
-
-                <div>
-                    <strong>DILNAWAZ</strong>
-                    <span>FOUNDATION</span>
-                </div>
-
-            </a>
-
-            <p>
-                Serving communities with compassion,
-                dignity and purpose.
-            </p>
-
-
-            <div class="social-links">
-
-                <a href="#"
-                   aria-label="Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-
-                <a href="#"
-                   aria-label="Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-
-                <a href="#"
-                   aria-label="YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved Apr 18</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
             </div>
+          </div>
+
+          <!-- Card 3: Link -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
+            <div>
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-pink-900 to-rose-800 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="globe" class="w-6 h-6"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Link</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Material Motion Guidelines for Medical UI</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">m3.material.io</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved Apr 23</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Card 4: Video -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
+            <div>
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-emerald-900 to-teal-800 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-6 h-6 fill-current"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Awake Craniotomy: Language Mapping</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Library Healthcare Center</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved May 11</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Card 5: Doc -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
+            <div>
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-cyan-900 to-teal-900 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="file-text" class="w-6 h-6"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Doc</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Onboarding Checklist for Volunteers</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">People Ops Dilnawaz Foundation</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved May 12</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+
+          <!-- Card 6: Video -->
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
+            <div>
+              <div class="h-36 rounded-2xl bg-gradient-to-tr from-amber-900 to-orange-800 flex items-center justify-center relative overflow-hidden mb-4">
+                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
+                  <i data-lucide="play" class="w-6 h-6 fill-current"></i>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
+              </div>
+              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Endoscopic Pituitary Surgery Walkthrough</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Medical Library Archives</p>
+            </div>
+            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
+              <span>Saved May 15</span>
+              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+            </div>
+          </div>
 
         </div>
 
+        <!-- Collections / Sidebar Panel (Right Column) -->
+        <aside class="space-y-5">
+          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-5 shadow-sm">
+            <h3 class="font-bold text-base mb-4 flex items-center justify-between">
+              Collections
+              <i data-lucide="folder-plus" class="w-4 h-4 text-purple-500 cursor-pointer"></i>
+            </h3>
 
-        <div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 font-medium text-xs">
+                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Neurosurgery Reference</span>
+                <span class="bg-purple-600 text-white px-2 py-0.5 rounded-full text-[10px]">24</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
+                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Design Inspiration</span>
+                <span>41</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
+                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Team Onboarding</span>
+                <span>9</span>
+              </div>
+              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
+                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Read Later</span>
+                <span>17</span>
+              </div>
+            </div>
+          </div>
 
-            <h4>Quick Links</h4>
+          <!-- Support Banner Card -->
+          <div class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-3xl p-6 relative overflow-hidden shadow-lg shadow-purple-500/20">
+            <div class="relative z-10">
+              <h4 class="font-bold text-lg">Support DAF Initiatives</h4>
+              <p class="text-xs text-purple-100 mt-2 leading-relaxed">Help us fund critical healthcare, medical education, and community support projects.</p>
+              <a href="donate.html" class="mt-4 inline-block px-4 py-2 bg-white text-purple-700 font-bold rounded-xl text-xs hover:bg-purple-50 transition-colors shadow">
+                Contribute Today
+              </a>
+            </div>
+          </div>
+        </aside>
 
-            <ul class="footer-links">
+      </div>
 
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="projects.html">Our Work</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="donate.html">Donate</a></li>
-                <li><a href="contact.html">Contact</a></li>
+    </main>
 
-            </ul>
+  </div>
 
-        </div>
-
-
-        <div>
-
-            <h4>Our Work</h4>
-
-            <ul class="footer-links">
-
-                <li><a href="projects.html">Education Support</a></li>
-                <li><a href="projects.html">Food & Essentials</a></li>
-                <li><a href="projects.html">Community Support</a></li>
-                <li><a href="projects.html">Emergency Relief</a></li>
-
-            </ul>
-
-        </div>
-
-
-        <div>
-
-            <h4>Contact</h4>
-
-            <ul class="footer-contact">
-
-                <li>
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Your Foundation Address, Pakistan</span>
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-phone"></i>
-                    <span>+92 XXX XXXXXXX</span>
-                </li>
-
-                <li>
-                    <i class="fa-solid fa-envelope"></i>
-                    <span>info@yourfoundation.org</span>
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <div class="container">
-
-            <p>
-                © <span id="year"></span>
-                Dilnawaz Foundation. All Rights Reserved.
-            </p>
-
-            <p>
-                Built with purpose & compassion.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-
-<button id="backToTop"
-        class="back-to-top"
-        aria-label="Back to top">
-
-    <i class="fa-solid fa-arrow-up"></i>
-
-</button>
-
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
