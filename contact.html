@@ -1,493 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
-
-<meta name="description"
-      content="Contact Dilnawaz Foundation, volunteer with us or learn how to support our work.">
-
-<title>Contact | Dilnawaz Foundation</title>
-
-<link rel="stylesheet"
-      href="style.css">
-
-<link rel="preconnect"
-      href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
-      rel="stylesheet">
-
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Dilnawaz Foundation (DAF)</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
-
-
-<body>
-
-
-<header class="header">
-
-<div class="container nav-container">
-
-<a href="index.html" class="logo">
-
-<img src="assets/logo.png"
-     alt="Dilnawaz Foundation">
-
-<div class="logo-text">
-<strong>DILNAWAZ</strong>
-<span>FOUNDATION</span>
-</div>
-
-</a>
-
-
-<nav class="nav" id="nav">
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="projects.html">Our Work</a>
-<a href="gallery.html">Gallery</a>
-<a href="donate.html">Donate</a>
-<a href="contact.html" class="active">Contact</a>
-
-</nav>
-
-
-<a href="donate.html"
-   class="nav-donate">
-Donate Now
-</a>
-
-
-<button class="menu-toggle"
-        id="menuToggle">
-
-<span></span>
-<span></span>
-<span></span>
-
-</button>
-
-</div>
-
-</header>
-
-
-
-<section class="page-hero">
-
-<div class="container">
-
-<span class="section-label light">
-GET IN TOUCH
-</span>
-
-<h1>
-Let’s Work
-<span>Together</span>
-</h1>
-
-<p>
-Have a question, want to volunteer, or would like
-to support our work? Contact us.
-</p>
-
-</div>
-
-</section>
-
-
-
-<section class="section">
-
-<div class="container contact-grid">
-
-
-<div class="contact-info">
-
-<span class="section-label">
-CONTACT DAF
-</span>
-
-<h2>
-We'd love to
-<span>hear from you.</span>
-</h2>
-
-<p>
-Whether you want to volunteer, support a project,
-ask a question or explore collaboration,
-we are happy to hear from you.
-</p>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-
-<i class="fa-solid fa-location-dot"></i>
-
-</div>
-
-<div>
-
-<h3>Address</h3>
-
-<p>
-Your Foundation Address<br>
-Pakistan
-</p>
-
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-
-<i class="fa-solid fa-phone"></i>
-
-</div>
-
-<div>
-
-<h3>Phone</h3>
-
-<p>
-+92 XXX XXXXXXX
-</p>
-
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-
-<i class="fa-solid fa-envelope"></i>
-
-</div>
-
-<div>
-
-<h3>Email</h3>
-
-<p>
-info@yourfoundation.org
-</p>
-
-</div>
-
-</div>
-
-
-<div class="contact-item">
-
-<div class="contact-icon">
-
-<i class="fa-brands fa-instagram"></i>
-
-</div>
-
-<div>
-
-<h3>Instagram</h3>
-
-<p>
-@DAF-dilnawazfoundation
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<div class="contact-form-wrapper">
-
-<form id="contactForm"
-      class="contact-form">
-
-<div class="form-row">
-
-<div class="form-group">
-
-<label for="name">
-Your Name
-</label>
-
-<input type="text"
-       id="name"
-       name="name"
-       placeholder="Enter your name"
-       required>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="email">
-Email Address
-</label>
-
-<input type="email"
-       id="email"
-       name="email"
-       placeholder="Enter your email"
-       required>
-
-</div>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="subject">
-Subject
-</label>
-
-<select id="subject"
-        name="subject">
-
-<option value="general">
-General Inquiry
-</option>
-
-<option value="volunteer">
-Volunteer
-</option>
-
-<option value="donation">
-Donation
-</option>
-
-<option value="partnership">
-Partnership
-</option>
-
-<option value="other">
-Other
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label for="message">
-Message
-</label>
-
-<textarea id="message"
-          name="message"
-          rows="6"
-          placeholder="Write your message..."
-          required></textarea>
-
-</div>
-
-
-<button type="submit"
-        class="btn btn-primary form-submit">
-
-Send Message
-<i class="fa-solid fa-arrow-right"></i>
-
-</button>
-
-
-<p class="form-note">
-This form opens your email application. Replace the
-email address in <strong>script.js</strong> with the
-official DAF email.
-</p>
-
-</form>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- VOLUNTEER -->
-
-<section class="volunteer-section">
-
-<div class="container volunteer-content">
-
-<div>
-
-<span class="section-label light">
-VOLUNTEER WITH US
-</span>
-
-<h2>
-Your time can make
-a difference.
-</h2>
-
-<p>
-If you want to contribute your skills, time or
-energy to community service, we'd love to hear
-from you.
-</p>
-
-</div>
-
-<a href="#contactForm"
-   class="btn btn-white">
-
-Become a Volunteer
-
-</a>
-
-</div>
-
-</section>
-
-
-
-<footer class="footer">
-
-<div class="container footer-grid">
-
-<div class="footer-brand">
-
-<a href="index.html"
-   class="footer-logo">
-
-<img src="assets/logo.png"
-     alt="Dilnawaz Foundation">
-
-<div>
-<strong>DILNAWAZ</strong>
-<span>FOUNDATION</span>
-</div>
-
-</a>
-
-<p>
-Serving communities with compassion,
-dignity and purpose.
-</p>
-
-<div class="social-links">
-
-<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-<a href="#"><i class="fa-brands fa-instagram"></i></a>
-<a href="#"><i class="fa-brands fa-youtube"></i></a>
-
-</div>
-
-</div>
-
-
-<div>
-
-<h4>Quick Links</h4>
-
-<ul class="footer-links">
-
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="projects.html">Our Work</a></li>
-<li><a href="gallery.html">Gallery</a></li>
-<li><a href="donate.html">Donate</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h4>Our Work</h4>
-
-<ul class="footer-links">
-
-<li><a href="projects.html">Education</a></li>
-<li><a href="projects.html">Food Support</a></li>
-<li><a href="projects.html">Community</a></li>
-<li><a href="projects.html">Relief</a></li>
-
-</ul>
-
-</div>
-
-
-<div>
-
-<h4>Contact</h4>
-
-<ul class="footer-contact">
-
-<li>
-<i class="fa-solid fa-location-dot"></i>
-<span>Your Foundation Address, Pakistan</span>
-</li>
-
-<li>
-<i class="fa-solid fa-phone"></i>
-<span>+92 XXX XXXXXXX</span>
-</li>
-
-<li>
-<i class="fa-solid fa-envelope"></i>
-<span>info@yourfoundation.org</span>
-</li>
-
-</ul>
-
-</div>
-
-</div>
-
-
-<div class="footer-bottom">
-
-<div class="container">
-
-<p>
-© <span id="year"></span>
-Dilnawaz Foundation. All Rights Reserved.
-</p>
-
-<p>
-Built with purpose & compassion.
-</p>
-
-</div>
-
-</div>
-
-</footer>
-
-
-<script src="script.js"></script>
-
+<body class="bg-slate-100 dark:bg-[#0d0f17] text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans selection:bg-purple-500 selection:text-white">
+
+  <!-- Background Glowing Orbs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <div class="absolute -top-40 -left-40 w-96 h-96 bg-purple-600/30 rounded-full blur-[120px]"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px]"></div>
+  </div>
+
+  <!-- Top Glass Navigation Bar -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/60 dark:bg-[#121522]/70 border-b border-slate-200/50 dark:border-white/10 transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-indigo-500 flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-purple-500/30">
+          DAF
+        </div>
+        <div>
+          <h1 class="font-bold text-lg tracking-tight bg-gradient-to-r from-purple-600 via-indigo-500 to-pink-500 bg-clip-text text-transparent">
+            Dilnawaz Foundation
+          </h1>
+          <p class="text-[10px] text-slate-500 dark:text-slate-400 -mt-1 font-medium">Empowering Communities & Healthcare</p>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-1 bg-slate-200/50 dark:bg-white/5 p-1 rounded-full border border-slate-300/40 dark:border-white/10">
+        <a href="index.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 transition-colors">Home</a>
+        <a href="about.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 transition-colors">About Us</a>
+        <a href="projects.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 transition-colors">Projects</a>
+        <a href="gallery.html" class="px-4 py-1.5 rounded-full text-sm font-medium hover:text-purple-600 transition-colors">Gallery</a>
+        <a href="contact.html" class="px-4 py-1.5 rounded-full text-sm font-semibold bg-white dark:bg-purple-600/30 text-purple-600 dark:text-purple-300 shadow-sm">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="donate.html" class="px-5 py-2 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium text-sm shadow-md shadow-purple-500/25 transition-all">Donate Now</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex flex-1 relative">
+    <!-- Left Floating Bar -->
+    <aside class="w-16 md:w-20 bg-white/40 dark:bg-[#121522]/50 backdrop-blur-xl border-r border-slate-200/50 dark:border-white/10 flex flex-col items-center py-6 gap-6 z-30">
+      <button id="themeToggleBtn" title="Toggle Theme" class="p-3 rounded-2xl bg-white/80 dark:bg-slate-800/80 hover:bg-purple-500 hover:text-white dark:hover:bg-purple-600 text-slate-700 dark:text-slate-200 shadow-md border border-slate-200/60 dark:border-white/10 transition-all group">
+        <i data-lucide="sun" class="w-5 h-5 hidden dark:block"></i>
+        <i data-lucide="moon" class="w-5 h-5 block dark:hidden"></i>
+      </button>
+
+      <div class="w-8 h-[1px] bg-slate-300 dark:bg-white/10 my-1"></div>
+
+      <a href="index.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 transition-all"><i data-lucide="layout-dashboard" class="w-5 h-5"></i></a>
+      <a href="projects.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 transition-all"><i data-lucide="folder-kanban" class="w-5 h-5"></i></a>
+      <a href="gallery.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 transition-all"><i data-lucide="play-circle" class="w-5 h-5"></i></a>
+      <a href="about.html" class="p-3 rounded-2xl hover:bg-slate-200/60 dark:hover:bg-white/10 text-slate-600 dark:text-slate-400 transition-all"><i data-lucide="info" class="w-5 h-5"></i></a>
+      <a href="contact.html" class="mt-auto p-3 rounded-2xl bg-purple-600 text-white shadow-lg shadow-purple-500/30 transition-all"><i data-lucide="life-buoy" class="w-5 h-5"></i></a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 lg:p-10 max-w-4xl mx-auto w-full">
+      <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-8 shadow-xl">
+        <div class="mb-8">
+          <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 text-xs font-bold uppercase tracking-wider">Get in Touch</span>
+          <h2 class="text-3xl font-extrabold mt-3">Contact Dilnawaz Foundation</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Have queries regarding our medical drives, or want to join as a volunteer? Reach out to us.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Contact Form -->
+          <form class="space-y-4" onsubmit="event.preventDefault(); alert('Your message has been sent successfully!');">
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-slate-600 dark:text-slate-300">Your Name</label>
+              <input type="text" placeholder="John Doe" required class="w-full px-4 py-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-sm focus:outline-none focus:border-purple-500 transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-slate-600 dark:text-slate-300">Email Address</label>
+              <input type="email" placeholder="john@example.com" required class="w-full px-4 py-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-sm focus:outline-none focus:border-purple-500 transition-colors" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-semibold mb-1 text-slate-600 dark:text-slate-300">Message</label>
+              <textarea rows="4" placeholder="How can we help you?" required class="w-full px-4 py-3 rounded-2xl bg-white/50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-sm focus:outline-none focus:border-purple-500 transition-colors"></textarea>
+            </div>
+
+            <button type="submit" class="w-full py-3 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-lg shadow-purple-500/25 hover:from-purple-500 hover:to-indigo-500 transition-all">
+              Send Message
+            </button>
+          </form>
+
+          <!-- Contact Details Info Card -->
+          <div class="flex flex-col justify-between space-y-6 p-6 rounded-2xl bg-white/40 dark:bg-white/5 border border-slate-200/60 dark:border-white/5">
+            <div class="space-y-4">
+              <h3 class="font-bold text-lg">Contact Information</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Our support and administration team is available to assist partners and volunteers.</p>
+              
+              <div class="space-y-3 pt-2 text-xs">
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                  <i data-lucide="mail" class="w-4 h-4 text-purple-500"><span>contact@dilnawazfoundation.org</span></i>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                  <i data-lucide="phone" class="w-4 h-4 text-purple-500"><span>+1 (555) 019-2834</span></i>
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 dark:text-slate-300">
+                  <i data-lucide="map-pin" class="w-4 h-4 text-purple-500"><span>Global Health Headquarters</span></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 text-[11px]">
+              ✨ All systems operational. Response time within 24 hours.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
