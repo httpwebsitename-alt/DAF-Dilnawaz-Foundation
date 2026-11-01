@@ -36,9 +36,9 @@
 
 <body class="bg-slate-100 dark:bg-[#0d0f17] text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col font-sans selection:bg-purple-500 selection:text-white">
 
-  <!-- 3D Intro Overlay (D from Left, A from Top, F from Right with Multi-Colored Threads) -->
-  <div id="intro-3d-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors duration-500 overflow-hidden">
-    <canvas id="intro-canvas" class="w-full h-full block"></canvas>
+  <!-- Aesthetic 3D Intro Overlay -->
+  <div id="intro-3d-overlay" class="fixed inset-0 z-50 flex items-center justify-center bg-[#070913] transition-colors duration-700 overflow-hidden">
+    <canvas id="intro-canvas" class="w-full h-full block pointer-events-none"></canvas>
   </div>
 
   <!-- Background Glowing Orbs for Glassmorphism Effect -->
@@ -84,7 +84,7 @@
 
   <div class="flex flex-1 relative">
 
-    <!-- Left Floating Bar (Theme Switcher & Quick Navigation) -->
+    <!-- Left Floating Bar -->
     <aside class="w-16 md:w-20 bg-white/40 dark:bg-[#121522]/50 backdrop-blur-xl border-r border-slate-200/50 dark:border-white/10 flex flex-col items-center py-6 gap-6 transition-all z-30">
       
       <!-- Theme Switcher Button -->
@@ -115,15 +115,12 @@
 
     <!-- Main Content Area -->
     <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto w-full">
-      
-      <!-- Top Title Bar & Search -->
       <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
         <div>
           <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Saved Resources & Knowledge Base</h2>
           <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Medical procedures, surgical guidelines, and foundation documentation.</p>
         </div>
 
-        <!-- Filter Tabs -->
         <div class="flex items-center gap-2 bg-white/60 dark:bg-[#121522]/60 p-1.5 rounded-2xl backdrop-blur-md border border-slate-200/50 dark:border-white/10 overflow-x-auto">
           <button class="px-4 py-1.5 rounded-xl text-xs font-semibold bg-purple-600 text-white shadow-md">All</button>
           <button class="px-4 py-1.5 rounded-xl text-xs font-medium text-slate-600 dark:text-slate-300 hover:bg-slate-200/50 dark:hover:bg-white/10 transition-colors">Videos</button>
@@ -133,163 +130,28 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
-
-        <!-- Grid of Saved Items -->
         <div class="lg:col-span-3 grid grid-cols-1 md:grid-cols-3 gap-5">
-
-          <!-- Card 1 -->
+          <!-- Cards standard markup -->
           <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
             <div>
               <div class="h-36 rounded-2xl bg-gradient-to-tr from-purple-900 to-indigo-800 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="absolute inset-0 bg-purple-500/20 blur-xl"></div>
                 <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
                   <i data-lucide="play" class="w-6 h-6 fill-current"></i>
                 </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
               </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Brain Aneurysm Clipping with Leica M530</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Leica Microsystems Surgical Guide</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved Mar 3</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
+              <h3 class="font-bold text-sm group-hover:text-purple-500 transition-colors">Brain Aneurysm Clipping Guide</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Leica Surgical Guide</p>
             </div>
           </div>
-
-          <!-- Card 2 -->
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
-            <div>
-              <div class="h-36 rounded-2xl bg-gradient-to-tr from-indigo-900 to-blue-800 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="file-text" class="w-6 h-6"></i>
-                </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Doc</span>
-              </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Q2 Design & Healthcare Review Findings</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Workspace Studio Guidelines</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved Apr 18</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
-            <div>
-              <div class="h-36 rounded-2xl bg-gradient-to-tr from-pink-900 to-rose-800 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="globe" class="w-6 h-6"></i>
-                </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Link</span>
-              </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Material Motion Guidelines for Medical UI</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">m3.material.io</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved Apr 23</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
-            <div>
-              <div class="h-36 rounded-2xl bg-gradient-to-tr from-emerald-900 to-teal-800 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="play" class="w-6 h-6 fill-current"></i>
-                </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
-              </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Awake Craniotomy: Language Mapping</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Library Healthcare Center</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved May 11</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
-            </div>
-          </div>
-
-          <!-- Card 5 -->
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
-            <div>
-              <div class="h-36 rounded-2xl bg-gradient-to-tr from-cyan-900 to-teal-900 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="file-text" class="w-6 h-6"></i>
-                </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Doc</span>
-              </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Onboarding Checklist for Volunteers</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">People Ops Dilnawaz Foundation</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved May 12</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
-            </div>
-          </div>
-
-          <!-- Card 6 -->
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 flex flex-col justify-between hover:shadow-xl hover:border-purple-500/50 transition-all duration-300 group">
-            <div>
-              <div class="h-36 rounded-2xl bg-gradient-to-tr from-amber-900 to-orange-800 flex items-center justify-center relative overflow-hidden mb-4">
-                <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white border border-white/30 group-hover:scale-110 transition-transform">
-                  <i data-lucide="play" class="w-6 h-6 fill-current"></i>
-                </div>
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-semibold text-white tracking-wider uppercase">Video</span>
-              </div>
-              <h3 class="font-bold text-sm leading-snug group-hover:text-purple-500 transition-colors">Endoscopic Pituitary Surgery Walkthrough</h3>
-              <p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Medical Library Archives</p>
-            </div>
-            <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-200/50 dark:border-white/5 text-[11px] text-slate-400">
-              <span>Saved May 15</span>
-              <button class="hover:text-purple-500"><i data-lucide="bookmark" class="w-4 h-4"></i></button>
-            </div>
-          </div>
-
         </div>
 
-        <!-- Collections / Sidebar Panel -->
         <aside class="space-y-5">
-          <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-5 shadow-sm">
-            <h3 class="font-bold text-base mb-4 flex items-center justify-between">
-              Collections
-              <i data-lucide="folder-plus" class="w-4 h-4 text-purple-500 cursor-pointer"></i>
-            </h3>
-
-            <div class="space-y-3">
-              <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-600 dark:text-purple-300 font-medium text-xs">
-                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Neurosurgery Reference</span>
-                <span class="bg-purple-600 text-white px-2 py-0.5 rounded-full text-[10px]">24</span>
-              </div>
-              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
-                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Design Inspiration</span>
-                <span>41</span>
-              </div>
-              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
-                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Team Onboarding</span>
-                <span>9</span>
-              </div>
-              <div class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-100 dark:hover:bg-white/5 font-medium text-xs text-slate-600 dark:text-slate-400 transition-colors">
-                <span class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4"></i> Read Later</span>
-                <span>17</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Support Banner Card -->
           <div class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-3xl p-6 relative overflow-hidden shadow-lg shadow-purple-500/20">
-            <div class="relative z-10">
-              <h4 class="font-bold text-lg">Support DAF Initiatives</h4>
-              <p class="text-xs text-purple-100 mt-2 leading-relaxed">Help us fund critical healthcare, medical education, and community support projects.</p>
-              <a href="donate.html" class="mt-4 inline-block px-4 py-2 bg-white text-purple-700 font-bold rounded-xl text-xs hover:bg-purple-50 transition-colors shadow">
-                Contribute Today
-              </a>
-            </div>
+            <h4 class="font-bold text-lg">Support DAF Initiatives</h4>
+            <p class="text-xs text-purple-100 mt-2">Help fund critical healthcare & community projects.</p>
           </div>
         </aside>
-
       </div>
-
     </main>
 
   </div>
@@ -298,54 +160,65 @@
   <script>
     lucide.createIcons();
 
-    // Theme Toggle Functionality
     const themeToggleBtn = document.getElementById('themeToggleBtn');
     themeToggleBtn.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
     });
 
-    // 3D DAF Multi-Threaded Intro Animation Logic
+    // Aesthetic 3D DAF Engine
     document.addEventListener("DOMContentLoaded", () => {
       const overlay = document.getElementById("intro-3d-overlay");
       const canvas = document.getElementById("intro-canvas");
       if (!canvas) return;
 
       const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
 
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
-      const dirLight1 = new THREE.DirectionalLight(0x00f0ff, 1.5);
-      dirLight1.position.set(5, 10, 7);
-      scene.add(dirLight1);
+      // Lighting Architecture for Cyber-Studio Look
+      scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+      
+      const cyanGlow = new THREE.PointLight(0x00f0ff, 4, 30);
+      cyanGlow.position.set(-6, 4, 8);
+      scene.add(cyanGlow);
 
-      const dirLight2 = new THREE.DirectionalLight(0xff007f, 1.5);
-      dirLight2.position.set(-5, -5, -5);
-      scene.add(dirLight2);
+      const magentaGlow = new THREE.PointLight(0xff007f, 4, 30);
+      magentaGlow.position.set(6, -4, 8);
+      scene.add(magentaGlow);
 
-      camera.position.z = 10;
+      const centerLight = new THREE.SpotLight(0xa855f7, 5, 40, Math.PI / 4, 0.5);
+      centerLight.position.set(0, 0, 15);
+      scene.add(centerLight);
+
+      camera.position.z = 11;
 
       const loader = new THREE.FontLoader();
       loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', (font) => {
-        const createMaterial = (colorHex) => new THREE.MeshStandardMaterial({
+        
+        // High-end Metallic Glass Material setup
+        const createAestheticMat = (colorHex) => new THREE.MeshPhysicalMaterial({
           color: colorHex,
-          wireframe: true,
-          roughness: 0.2,
-          metalness: 0.8
+          emissive: colorHex,
+          emissiveIntensity: 0.15,
+          roughness: 0.1,
+          metalness: 0.9,
+          clearcoat: 1.0,
+          clearcoatRoughness: 0.1,
+          wireframe: false
         });
 
         const textOptions = {
           font: font,
-          size: 2.2,
-          height: 0.5,
-          curveSegments: 12,
+          size: 2.4,
+          height: 0.6,
+          curveSegments: 20,
           bevelEnabled: true,
-          bevelThickness: 0.08,
-          bevelSize: 0.05,
-          bevelSegments: 5
+          bevelThickness: 0.12,
+          bevelSize: 0.08,
+          bevelSegments: 8
         };
 
         const geoD = new THREE.TextGeometry('D', textOptions);
@@ -354,9 +227,9 @@
 
         geoD.center(); geoA.center(); geoF.center();
 
-        const meshD = new THREE.Mesh(geoD, createMaterial(0x10b981)); // Emerald
-        const meshA = new THREE.Mesh(geoA, createMaterial(0x06b6d4)); // Cyan
-        const meshF = new THREE.Mesh(geoF, createMaterial(0xf43f5e)); // Rose
+        const meshD = new THREE.Mesh(geoD, createAestheticMat(0x10b981)); // Neon Emerald
+        const meshA = new THREE.Mesh(geoA, createAestheticMat(0x3b82f6)); // Electric Blue
+        const meshF = new THREE.Mesh(geoF, createAestheticMat(0xec4899)); // Cyber Pink
 
         const group = new THREE.Group();
         group.add(meshD);
@@ -364,26 +237,36 @@
         group.add(meshF);
         scene.add(group);
 
-        // Initial off-screen positions: D from Left, A from Top, F from Right
-        meshD.position.set(-15, 0, 0); 
-        meshA.position.set(0, 15, 0); 
-        meshF.position.set(15, 0, 0);  
+        // Position offsets
+        meshD.position.set(-18, 0, 0); 
+        meshA.position.set(0, 18, 0); 
+        meshF.position.set(18, 0, 0);  
 
         const tl = gsap.timeline();
-        tl.to(meshD.position, { x: -2.2, duration: 1.2, ease: "back.out(1.7)" }, 0)
-          .to(meshA.position, { y: 0, duration: 1.2, ease: "back.out(1.7)" }, 0)
-          .to(meshF.position, { x: 2.2, duration: 1.2, ease: "back.out(1.7)" }, 0)
-          .to(group.rotation, { y: Math.PI * 2, duration: 1.5, ease: "power2.inOut" }, ">")
+
+        // Ultra-smooth Kinetic Animations
+        tl.to(meshD.position, { x: -2.7, duration: 1.4, ease: "expo.out" }, 0)
+          .to(meshA.position, { y: 0, duration: 1.4, ease: "expo.out" }, 0.1)
+          .to(meshF.position, { x: 2.7, duration: 1.4, ease: "expo.out" }, 0.2)
+          
+          // Slight 3D Dynamic Tilt
+          .to(group.rotation, { x: 0.2, y: Math.PI * 2, duration: 1.8, ease: "power3.inOut" }, "-=0.8")
+          
+          // Smooth Auto-scroll Slide Exit
           .to(overlay, { 
             yPercent: -100, 
             duration: 1.2, 
-            delay: 1.5, 
+            delay: 1.0, 
             ease: "power4.inOut",
             onComplete: () => { overlay.style.display = "none"; }
           });
 
+        // Continuous Subtle Float Motion
+        let clock = new THREE.Clock();
         function animate() {
           requestAnimationFrame(animate);
+          const time = clock.getElapsedTime();
+          group.position.y = Math.sin(time * 2) * 0.15;
           renderer.render(scene, camera);
         }
         animate();
