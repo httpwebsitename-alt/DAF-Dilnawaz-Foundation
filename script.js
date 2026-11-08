@@ -1,17 +1,17 @@
 
-/* =====================================================
+/* =========================================================
    DAF - DILNAWAZ AHMED FOUNDATION
    Complete Website JavaScript
-===================================================== */
+========================================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
 
     "use strict";
 
 
-    /* =================================================
+    /* =====================================================
        1. ELEMENT REFERENCES
-    ================================================= */
+    ===================================================== */
 
     const introScreen = document.getElementById("introScreen");
     const mainWebsite = document.getElementById("mainWebsite");
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menuToggle");
     const mainNav = document.getElementById("mainNav");
 
-    const themeToggle = document.getElementById("themeToggle");
+    const themePicker = document.getElementById("themePicker");
     const themeOptions = document.getElementById("themeOptions");
     const themeButtons = document.querySelectorAll(".theme-option");
 
@@ -36,153 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
     let introTimer = null;
 
 
-    /* =================================================
-       2. INTRO BUBBLE ANIMATION
-    ================================================= */
-
-    function createBubbles() {
-
-        if (!bubbleContainer) return;
-
-        bubbleContainer.innerHTML = "";
-
-        for (let i = 0; i < 35; i++) {
-
-            const bubble = document.createElement("div");
-
-            bubble.className = "bubble";
-
-            const size = Math.random() * 35 + 8;
-            const left = Math.random() * 100;
-            const duration = Math.random() * 8 + 7;
-            const delay = Math.random() * 8;
-            const drift = (Math.random() - 0.5) * 150;
-
-            bubble.style.setProperty("--size", size + "px");
-            bubble.style.setProperty("--left", left + "%");
-            bubble.style.setProperty("--duration", duration + "s");
-            bubble.style.setProperty("--delay", delay + "s");
-            bubble.style.setProperty("--drift", drift + "px");
-
-            bubbleContainer.appendChild(bubble);
-
-        }
-
-    }
-
-
-    /* =================================================
-       3. INTRO FLOATING LETTERS
-    ================================================= */
-
-    function createFloatingLetters() {
-
-        if (!floatingLetters) return;
-
-        floatingLetters.innerHTML = "";
-
-        const letters = ["D", "A", "F"];
-
-        letters.forEach((letter, index) => {
-
-            const element = document.createElement("span");
-
-            element.className = "floating-letter";
-            element.textContent = letter;
-
-            const startX = (Math.random() - 0.5) * 900;
-            const startY = (Math.random() - 0.5) * 600;
-
-            element.style.setProperty("--start-x", startX + "px");
-            element.style.setProperty("--start-y", startY + "px");
-
-            element.style.animationDelay = (index * 0.3) + "s";
-
-            floatingLetters.appendChild(element);
-
-        });
-
-    }
-
-
-    /* =================================================
-       4. SHOW MAIN WEBSITE
-    ================================================= */
-
-    function showWebsite() {
-
-        if (!introScreen || !mainWebsite) return;
-
-        if (introTimer) {
-            clearTimeout(introTimer);
-            introTimer = null;
-        }
-
-        introScreen.classList.add("hide");
-
-        mainWebsite.style.display = "block";
-
-        requestAnimationFrame(function () {
-            mainWebsite.classList.add("visible");
-        });
-
-        localStorage.setItem("dafIntroCompleted", "true");
-
-        setTimeout(function () {
-
-            introScreen.style.display = "none";
-
-        }, 1100);
-
-    }
-
-
-    /* =================================================
-       5. INTRO INITIALIZATION
-    ================================================= */
-
-    function initializeIntro() {
-
-        if (!introScreen || !mainWebsite) return;
-
-        const alreadyVisited =
-            localStorage.getItem("dafIntroCompleted");
-
-        if (alreadyVisited === "true") {
-
-            introScreen.style.display = "none";
-
-            mainWebsite.style.display = "block";
-            mainWebsite.classList.add("visible");
-
-            return;
-
-        }
-
-        createBubbles();
-        createFloatingLetters();
-
-        introTimer = setTimeout(function () {
-
-            showWebsite();
-
-        }, 7000);
-
-    }
-
-
-    if (skipIntro) {
-
-        skipIntro.addEventListener("click", function () {
-            showWebsite();
-        });
-
-    }
-
-
-    /* =================================================
-       6. SIX WEBSITE THEMES
-    ================================================= */
+    /* =====================================================
+       2. SIX WEBSITE THEMES
+    ===================================================== */
 
     const themes = {
 
@@ -255,11 +111,17 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
 
+    /* =====================================================
+       3. APPLY SELECTED THEME
+    ===================================================== */
+
     function applyTheme(themeName) {
 
         const selectedTheme = themes[themeName];
 
-        if (!selectedTheme) return;
+        if (!selectedTheme) {
+            return;
+        }
 
         const root = document.documentElement;
 
@@ -274,22 +136,20 @@ document.addEventListener("DOMContentLoaded", function () {
         root.style.setProperty("--muted", selectedTheme.muted);
         root.style.setProperty("--border", selectedTheme.border);
 
-        localStorage.setItem("dafTheme", themeName);
-
-        if (themeToggle) {
-
-            const dot = themeToggle.querySelector(".theme-dot");
-
-            if (dot) {
-                dot.style.background = selectedTheme.secondary;
-            }
-
+        try {
+            localStorage.setItem("dafTheme", themeName);
+        } catch (error) {
+            console.warn("Theme preference could not be saved.");
         }
 
         updateSelectedTheme(themeName);
 
     }
 
+
+    /* =====================================================
+       4. UPDATE SELECTED THEME INDICATOR
+    ===================================================== */
 
     function updateSelectedTheme(themeName) {
 
@@ -309,69 +169,233 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    const savedTheme = localStorage.getItem("dafTheme") || "margalla";
+    /* =====================================================
+       5. THEME BUTTON EVENTS
+    ===================================================== */
+
+    themeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const selectedTheme = button.dataset.theme;
+
+            applyTheme(selectedTheme);
+
+        });
+
+    });
+
+
+    /* Load previously selected theme */
+
+    let savedTheme = "margalla";
+
+    try {
+
+        savedTheme = localStorage.getItem("dafTheme") || "margalla";
+
+    } catch (error) {
+
+        savedTheme = "margalla";
+
+    }
+
+    if (!themes[savedTheme]) {
+        savedTheme = "margalla";
+    }
 
     applyTheme(savedTheme);
 
 
-    /* =================================================
-       7. THEME MENU INTERACTION
-    ================================================= */
+    /* =====================================================
+       6. INTRO BUBBLE ANIMATION
+    ===================================================== */
 
-    if (themeToggle && themeOptions) {
+    function createBubbles() {
 
-        themeToggle.addEventListener("click", function (event) {
+        if (!bubbleContainer) {
+            return;
+        }
 
-            event.stopPropagation();
+        bubbleContainer.innerHTML = "";
 
-            const isOpen = themeOptions.classList.toggle("show");
+        for (let i = 0; i < 35; i++) {
 
-            themeToggle.setAttribute(
-                "aria-expanded",
-                String(isOpen)
-            );
+            const bubble = document.createElement("div");
 
-        });
+            bubble.className = "bubble";
 
+            const size = Math.random() * 35 + 8;
+            const left = Math.random() * 100;
+            const duration = Math.random() * 8 + 7;
+            const delay = Math.random() * 8;
+            const drift = (Math.random() - 0.5) * 150;
 
-        themeButtons.forEach(function (button) {
+            bubble.style.setProperty("--size", size + "px");
+            bubble.style.setProperty("--left", left + "%");
+            bubble.style.setProperty("--duration", duration + "s");
+            bubble.style.setProperty("--delay", delay + "s");
+            bubble.style.setProperty("--drift", drift + "px");
 
-            button.addEventListener("click", function () {
+            bubbleContainer.appendChild(bubble);
 
-                const selectedTheme = button.dataset.theme;
+        }
 
-                applyTheme(selectedTheme);
-
-                themeOptions.classList.remove("show");
-
-                themeToggle.setAttribute("aria-expanded", "false");
-
-            });
-
-        });
+    }
 
 
-        document.addEventListener("click", function (event) {
+    /* =====================================================
+       7. INTRO FLOATING LETTERS
+    ===================================================== */
 
-            if (
-                !themeToggle.contains(event.target) &&
-                !themeOptions.contains(event.target)
-            ) {
+    function createFloatingLetters() {
 
-                themeOptions.classList.remove("show");
+        if (!floatingLetters) {
+            return;
+        }
 
-                themeToggle.setAttribute("aria-expanded", "false");
+        floatingLetters.innerHTML = "";
 
-            }
+        const letters = ["D", "A", "F"];
+
+        letters.forEach(function (letter, index) {
+
+            const element = document.createElement("span");
+
+            element.className = "floating-letter";
+            element.textContent = letter;
+
+            const startX = (Math.random() - 0.5) * 900;
+            const startY = (Math.random() - 0.5) * 600;
+
+            element.style.setProperty("--start-x", startX + "px");
+            element.style.setProperty("--start-y", startY + "px");
+
+            element.style.animationDelay = (index * 0.3) + "s";
+
+            floatingLetters.appendChild(element);
 
         });
 
     }
 
 
-    /* =================================================
-       8. MOBILE NAVIGATION
-    ================================================= */
+    /* =====================================================
+       8. SHOW MAIN WEBSITE
+    ===================================================== */
+
+    function showWebsite() {
+
+        if (!mainWebsite) {
+            return;
+        }
+
+        if (introTimer) {
+
+            clearTimeout(introTimer);
+            introTimer = null;
+
+        }
+
+        if (introScreen) {
+
+            introScreen.classList.add("hide");
+
+        }
+
+        mainWebsite.style.display = "block";
+
+        requestAnimationFrame(function () {
+
+            mainWebsite.classList.add("visible");
+
+        });
+
+        try {
+
+            localStorage.setItem("dafIntroCompleted", "true");
+
+        } catch (error) {
+
+            console.warn("Intro preference could not be saved.");
+
+        }
+
+        if (introScreen) {
+
+            setTimeout(function () {
+
+                introScreen.style.display = "none";
+
+            }, 1100);
+
+        }
+
+    }
+
+
+    /* =====================================================
+       9. INITIALIZE INTRO
+    ===================================================== */
+
+    function initializeIntro() {
+
+        if (!mainWebsite) {
+            return;
+        }
+
+        let alreadyVisited = false;
+
+        try {
+
+            alreadyVisited =
+                localStorage.getItem("dafIntroCompleted") === "true";
+
+        } catch (error) {
+
+            alreadyVisited = false;
+
+        }
+
+        if (alreadyVisited) {
+
+            if (introScreen) {
+                introScreen.style.display = "none";
+            }
+
+            mainWebsite.style.display = "block";
+            mainWebsite.classList.add("visible");
+
+            return;
+
+        }
+
+        createBubbles();
+        createFloatingLetters();
+
+        introTimer = setTimeout(function () {
+
+            showWebsite();
+
+        }, 7000);
+
+    }
+
+
+    if (skipIntro) {
+
+        skipIntro.addEventListener("click", function () {
+
+            showWebsite();
+
+        });
+
+    }
+
+
+    /* =====================================================
+       10. MOBILE NAVIGATION
+    ===================================================== */
 
     if (menuToggle && mainNav) {
 
@@ -426,13 +450,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       9. HERO IMAGE SLIDER
-    ================================================= */
+    /* =====================================================
+       11. HERO IMAGE SLIDER
+    ===================================================== */
 
     function displaySlide(index) {
 
-        if (!slides.length) return;
+        if (!slides.length) {
+            return;
+        }
 
         currentSlide = (index + slides.length) % slides.length;
 
@@ -452,9 +478,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function stopSlider() {
+
+        if (sliderInterval) {
+
+            clearInterval(sliderInterval);
+            sliderInterval = null;
+
+        }
+
+    }
+
+
     function startSlider() {
 
-        if (slides.length <= 1) return;
+        if (slides.length <= 1) {
+            return;
+        }
 
         stopSlider();
 
@@ -467,23 +507,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function stopSlider() {
-
-        if (sliderInterval) {
-
-            clearInterval(sliderInterval);
-
-            sliderInterval = null;
-
-        }
-
-    }
-
-
     function restartSlider() {
 
         stopSlider();
-
         startSlider();
 
     }
@@ -524,37 +550,60 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       10. IMPACT NUMBER COUNTERS
-    ================================================= */
+    /* Pause automatic slider when browser tab is hidden */
 
-    const counters = document.querySelectorAll("[data-count]");
+    document.addEventListener("visibilitychange", function () {
 
-    function animateCounter(counter) {
+        if (document.hidden) {
 
-        const target = Number(counter.dataset.count);
+            stopSlider();
 
-        if (!Number.isFinite(target) || target < 0) return;
+        } else {
+
+            startSlider();
+
+        }
+
+    });
+
+
+    /* =====================================================
+       12. IMPACT NUMBER COUNTERS
+    ===================================================== */
+
+    const counterElements = document.querySelectorAll("[data-count]");
+
+
+    function animateCounter(element) {
+
+        if (element.dataset.animated === "true") {
+            return;
+        }
+
+        element.dataset.animated = "true";
+
+        const target = Number(element.dataset.count);
+
+        if (!Number.isFinite(target)) {
+            return;
+        }
 
         const duration = 1800;
         const startTime = performance.now();
 
         function updateCounter(currentTime) {
 
-            const progress = Math.min(
-                (currentTime - startTime) / duration,
-                1
-            );
+            const elapsed = currentTime - startTime;
 
-            const easedProgress =
-                1 - Math.pow(1 - progress, 3);
+            const progress = Math.min(elapsed / duration, 1);
+
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
 
             const currentValue = Math.floor(
                 easedProgress * target
             );
 
-            counter.textContent =
-                currentValue.toLocaleString("en-US");
+            element.textContent = currentValue.toLocaleString("en-US");
 
             if (progress < 1) {
 
@@ -562,8 +611,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             } else {
 
-                counter.textContent =
-                    target.toLocaleString("en-US");
+                element.textContent = target.toLocaleString("en-US");
 
             }
 
@@ -593,12 +641,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
             },
             {
-                threshold: 0.5
+                threshold: 0.4
             }
         );
 
 
-        counters.forEach(function (counter) {
+        counterElements.forEach(function (counter) {
 
             counterObserver.observe(counter);
 
@@ -606,19 +654,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
     } else {
 
-        counters.forEach(animateCounter);
+        counterElements.forEach(function (counter) {
+
+            animateCounter(counter);
+
+        });
 
     }
 
 
-    /* =================================================
-       11. SCROLL REVEAL ANIMATION
-    ================================================= */
+    /* =====================================================
+       13. SCROLL REVEAL ANIMATIONS
+    ===================================================== */
 
     const revealElements = document.querySelectorAll(
-        ".section-heading, .about-content, .project-card, " +
-        ".project-detail-card, .impact-card, .gallery-item, " +
-        ".contact-card, .donate-content"
+        ".section-heading, " +
+        ".about-content, " +
+        ".project-card, " +
+        ".project-detail-card, " +
+        ".impact-card, " +
+        ".gallery-item, " +
+        ".contact-card, " +
+        ".donate-content"
     );
 
 
@@ -665,13 +722,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       12. ACTIVE NAVIGATION ON SCROLL
-    ================================================= */
+    /* =====================================================
+       14. ACTIVE NAVIGATION ON SCROLL
+    ===================================================== */
 
-    const pageSections = document.querySelectorAll(
-        "main section[id]"
-    );
+    const pageSections = document.querySelectorAll("main section[id]");
 
 
     if ("IntersectionObserver" in window && mainNav) {
@@ -719,9 +774,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =================================================
-       13. AUTOMATIC FOOTER YEAR
-    ================================================= */
+    /* =====================================================
+       15. AUTOMATIC FOOTER YEAR
+    ===================================================== */
 
     const yearElements = document.querySelectorAll(".current-year");
 
@@ -732,19 +787,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    /* =================================================
-       14. INITIALIZE INTRO
-    ================================================= */
+    /* =====================================================
+       16. INITIALIZE WEBSITE
+    ===================================================== */
 
     initializeIntro();
 
 
-    /* =================================================
-       15. FINAL INITIALIZATION
-    ================================================= */
-
-    console.log(
-        "DAF Website Initialized Successfully!"
-    );
+    console.log("DAF Website Initialized Successfully!");
 
 });
