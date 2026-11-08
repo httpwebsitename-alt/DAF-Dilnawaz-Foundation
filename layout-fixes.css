@@ -1,14 +1,13 @@
 
 /* ==========================================
-   DAF LAYOUT FIXES
-   Slider overlap, hero spacing and theme bar
+   DAF - UPDATED LAYOUT FIXES
 ========================================== */
 
-/* 1. HEADER: keep navigation aligned */
+/* HEADER AND NAVIGATION */
 .main-header {
     display: flex;
     align-items: center;
-    gap: clamp(12px, 1.8vw, 28px);
+    gap: 20px;
     padding-top: 12px;
     padding-bottom: 12px;
 }
@@ -22,76 +21,96 @@
     white-space: nowrap;
 }
 
-/* 2. THEMES: replace dropdown with horizontal options */
+/* ==========================================
+   VERTICAL THEME SIDEBAR - LEFT SIDE
+========================================== */
+
 .theme-picker {
-    flex: 0 0 auto;
-    position: relative;
-    margin-left: auto;
+    position: fixed !important;
+    left: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%);
+    z-index: 1000;
+
+    width: 155px;
+    margin: 0 !important;
+    padding: 10px;
+
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border, #e5e5e5);
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Hide the old Themes dropdown button */
+/* Hide old theme dropdown button */
 .theme-toggle {
     display: none !important;
 }
 
-/* Always show all six theme choices horizontally */
+/* Display themes vertically */
 .theme-options,
 .theme-options.show {
-    position: static;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    flex-wrap: nowrap;
-    gap: 7px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    gap: 8px !important;
 
-    width: auto;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    box-shadow: none;
-    background: transparent;
-    animation: none;
+    position: static !important;
+    width: 100% !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    animation: none !important;
 }
 
+/* Individual theme buttons */
 .theme-option {
-    display: inline-flex;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
-    gap: 7px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
 
-    width: auto;
-    min-height: 38px;
-    padding: 7px 9px;
+    width: 100% !important;
+    min-height: 39px;
+    padding: 8px 10px !important;
 
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    background: var(--surface);
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 9px;
 
-    font-size: 10px;
+    font-size: 11px;
     white-space: nowrap;
-    transition: background 0.25s ease,
-                border-color 0.25s ease,
-                transform 0.25s ease;
+
+    transition: all 0.25s ease;
 }
 
 .theme-option:hover {
-    transform: translateY(-2px);
+    background: var(--background);
+    transform: translateX(3px);
 }
 
 .theme-option.selected {
-    border-color: var(--secondary);
     background: var(--background);
+    border-color: var(--secondary);
 }
 
-.theme-swatch {
+/* Theme color circles */
+.theme-swatch,
+.theme-dot {
     width: 13px;
     height: 13px;
-    flex: 0 0 13px;
+    min-width: 13px;
+    border-radius: 50%;
 }
 
-/* 3. REMOVE EXCESS SPACE BELOW HEADER */
+/* ==========================================
+   HERO SECTION SPACING
+========================================== */
+
 .hero-section {
     min-height: calc(100vh - 82px);
     padding-top: clamp(28px, 4vh, 48px);
@@ -99,7 +118,6 @@
     align-items: center;
 }
 
-/* Keep the hero slider from creating unwanted height */
 .hero-visual,
 .hero-slider {
     min-width: 0;
@@ -109,7 +127,10 @@
     min-height: clamp(390px, 37vw, 590px);
 }
 
-/* 4. SLIDER TEXT: give the caption its own clear area */
+/* ==========================================
+   SLIDER TEXT AND FLOATING CARD
+========================================== */
+
 .slide-image {
     padding: clamp(24px, 3vw, 42px);
 }
@@ -128,28 +149,24 @@
     overflow-wrap: break-word;
 }
 
-/* Keep slider arrows above the slide */
 .slider-controls {
     z-index: 5;
 }
 
-/* 5. MOVE THE FLOATING MISSION CARD ABOVE THE SLIDER TEXT */
+/* Floating mission card */
 .hero-floating-card {
     z-index: 10;
     top: 22px;
     left: -24px;
     bottom: auto;
-
     max-width: 230px;
 }
 
-/* Prevent the floating card from blocking slide text */
-.hero-floating-card .floating-icon {
-    flex: 0 0 auto;
-}
+/* ==========================================
+   TABLET
+========================================== */
 
-/* 6. TABLET AND SMALL DESKTOP */
-@media (max-width: 1250px) {
+@media (max-width: 1100px) {
     .main-header {
         gap: 12px;
         padding-left: 3%;
@@ -157,25 +174,28 @@
     }
 
     .main-nav {
-        gap: 12px;
+        gap: 10px;
     }
 
     .main-nav a {
         font-size: 11px;
     }
 
-    .theme-options,
-    .theme-options.show {
-        gap: 5px;
+    .theme-picker {
+        width: 125px;
+        left: 8px !important;
     }
 
     .theme-option {
-        padding: 7px;
-        font-size: 9px;
+        font-size: 10px;
+        padding: 7px !important;
     }
 }
 
-/* 7. MOBILE: retain a compact, usable theme row */
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media (max-width: 900px) {
     .main-header {
         flex-wrap: wrap;
@@ -183,36 +203,31 @@
         padding: 12px 5%;
     }
 
-    .brand {
-        margin-right: auto;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
     .main-nav {
         order: 3;
         flex: 0 0 100%;
     }
 
+    /* On mobile, show themes horizontally below header */
     .theme-picker {
+        position: static !important;
+        transform: none !important;
         order: 4;
-        flex: 0 0 100%;
-        width: 100%;
-        margin: 0;
+        width: 100% !important;
+        margin: 10px 0 0 !important;
+        padding: 8px;
     }
 
     .theme-options,
     .theme-options.show {
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 6px;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
     }
 
     .theme-option {
-        font-size: 10px;
-        padding: 7px 9px;
+        width: auto !important;
+        flex: 0 0 auto;
     }
 
     .hero-section {
@@ -239,7 +254,7 @@
     }
 }
 
-/* 8. SMALL PHONES */
+/* SMALL PHONES */
 @media (max-width: 480px) {
     .hero-section {
         padding-top: 28px;
@@ -262,10 +277,5 @@
         top: 10px;
         left: -10px;
         padding: 12px;
-    }
-
-    .theme-options,
-    .theme-options.show {
-        justify-content: flex-start;
     }
 }
