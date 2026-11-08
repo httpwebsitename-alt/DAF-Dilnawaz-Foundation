@@ -3,574 +3,949 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Dilnawaz Ahmed Foundation - Small Acts. Greater Humanity.">
+
+    <meta name="description" content="Dilnawaz Ahmed Foundation — Serving humanity through compassion, dignity and hope since 2023.">
+
+    <meta name="theme-color" content="#173f35">
+
     <title>DAF | Dilnawaz Ahmed Foundation</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- INTRO SCREEN -->
-    <div class="intro-screen" id="introScreen">
-        <div class="bubble-container" id="bubbleContainer"></div>
-        <div class="floating-letters" id="floatingLetters"></div>
+<!-- =========================================
+     INTRO ANIMATION
+========================================= -->
 
-        <button class="skip-intro" id="skipIntro" type="button">Skip Intro</button>
+<div class="intro-screen" id="introScreen">
 
-        <div class="intro-content">
-            <div class="intro-logo">
-                <div class="logo-symbol">
-                    <span>D</span>
-                    <span>A</span>
-                    <span>F</span>
-                </div>
-                <div class="logo-line"></div>
-                <div class="logo-name">Dilnawaz Ahmed Foundation</div>
+    <div class="bubble-container" id="bubbleContainer"></div>
+
+    <div class="floating-letters" id="floatingLetters"></div>
+
+    <button class="skip-intro" id="skipIntro">
+        Skip Intro →
+    </button>
+
+    <div class="intro-content">
+
+        <div class="intro-logo">
+
+            <div class="logo-symbol">
+                <span>D</span>
+                <span>A</span>
+                <span>F</span>
             </div>
-            <p class="intro-tagline">SMALL ACTS. GREATER HUMANITY.</p>
+
+            <div class="logo-line"></div>
+
+            <div class="logo-name">
+                Dilnawaz Ahmed Foundation
+            </div>
+
         </div>
 
-        <div class="intro-footer">COMPASSION • HUMANITY • HOPE</div>
+        <p class="intro-tagline">
+            COMPASSION · HUMANITY · HOPE
+        </p>
+
     </div>
 
+    <div class="intro-footer">
+        SERVING HUMANITY SINCE 2023
+    </div>
 
-    <!-- MAIN WEBSITE -->
-    <div class="main-website" id="mainWebsite">
+</div>
 
-        <!-- HEADER -->
-        <header class="main-header">
 
-            <a href="#home" class="brand">DAF<span>.</span></a>
+<!-- =========================================
+     MAIN WEBSITE
+========================================= -->
 
-            <!-- THEME SELECTOR -->
-            <div class="theme-picker" id="themePicker">
-                <button class="theme-toggle" id="themeToggle" type="button">
-                    <span class="theme-dot"></span>
-                    Themes
-                </button>
+<div class="main-website" id="mainWebsite">
 
-                <div class="theme-options" id="themeOptions">
-                    <button class="theme-option selected" data-theme="margalla" type="button" aria-label="Margalla Mist">
-                        <span class="theme-swatch margalla-swatch"></span>
-                        <span class="theme-name">Margalla Mist</span>
-                    </button>
+    <!-- HEADER -->
 
-                    <button class="theme-option" data-theme="blue" type="button" aria-label="Institutional Blue">
-                        <span class="theme-swatch blue-swatch"></span>
-                        <span class="theme-name">Institutional Blue</span>
-                    </button>
+    <header class="main-header">
 
-                    <button class="theme-option" data-theme="ivory" type="button" aria-label="Ivory Press">
-                        <span class="theme-swatch ivory-swatch"></span>
-                        <span class="theme-name">Ivory Press</span>
-                    </button>
+        <a href="#home" class="brand" aria-label="DAF Home">
+            DAF<span>.</span>
+        </a>
 
-                    <button class="theme-option" data-theme="sage" type="button" aria-label="Sage Calm">
-                        <span class="theme-swatch sage-swatch"></span>
-                        <span class="theme-name">Sage Calm</span>
-                    </button>
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Toggle navigation"
+            aria-expanded="false">
+            ☰
+        </button>
 
-                    <button class="theme-option" data-theme="indigo" type="button" aria-label="Indigo Night">
-                        <span class="theme-swatch indigo-swatch"></span>
-                        <span class="theme-name">Indigo Night</span>
-                    </button>
+        <nav class="main-nav" id="mainNav">
 
-                    <button class="theme-option" data-theme="graphite" type="button" aria-label="Graphite">
-                        <span class="theme-swatch graphite-swatch"></span>
-                        <span class="theme-name">Graphite</span>
-                    </button>
-                </div>
-            </div>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#impact">Our Impact</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+            <a href="#donate" class="donate-nav">Donate</a>
 
-            <!-- NAVIGATION -->
-            <nav class="main-nav" id="mainNav">
-                <a href="#home" class="nav-active">Home</a>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#impact">Our Impact</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-                <a href="#donate" class="donate-nav">Donate</a>
-            </nav>
+        </nav>
 
-            <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu">
-                ☰
+        <!-- THEME SELECTOR -->
+
+        <div class="theme-picker">
+
+            <button
+                class="theme-toggle"
+                id="themeToggle"
+                aria-expanded="false"
+                aria-label="Choose website theme">
+
+                <span class="theme-dot"></span>
+                Themes
+                <span>⌄</span>
+
             </button>
 
-        </header>
-
-
-        <!-- HOME / HERO -->
-        <main>
-
-            <section class="hero-section" id="home">
-
-                <div class="hero-text">
-                    <span class="hero-eyebrow">DILNAWAZ AHMED FOUNDATION</span>
-
-                    <h1>
-                        Small Acts.<br>
-                        <span>Greater Humanity.</span>
-                    </h1>
-
-                    <p>
-                        We believe that every act of kindness has the power to
-                        transform a life. Together, we are building a world
-                        where compassion reaches everyone.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="#projects" class="hero-button">Explore Our Work →</a>
-                        <a href="#donate" class="hero-secondary">Support Our Mission</a>
-                    </div>
-
-                    <div class="hero-caption">
-                        <span class="caption-line"></span>
-                        <span>TOGETHER, WE CAN MAKE A DIFFERENCE</span>
-                    </div>
-                </div>
-
-
-                <!-- HERO SLIDER -->
-                <div class="hero-visual">
-
-                    <div class="hero-slider">
-
-                        <div class="slide active">
-                            <div class="slide-image slide-one">
-                                <div class="slide-caption">
-                                    <span>CARE • COMPASSION • SUPPORT</span>
-                                    <h3>Small Acts.<br>Lasting Impact.</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide">
-                            <div class="slide-image slide-two">
-                                <div class="slide-caption">
-                                    <span>FOOD • HOPE • HUMANITY</span>
-                                    <h3>Sharing Food.<br>Sharing Hope.</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slide">
-                            <div class="slide-image slide-three">
-                                <div class="slide-caption">
-                                    <span>ONE MISSION • ONE COMMUNITY</span>
-                                    <h3>Together We Can<br>Make a Difference.</h3>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="slider-controls">
-                            <button id="previousSlide" type="button" aria-label="Previous slide">←</button>
-                            <button id="nextSlide" type="button" aria-label="Next slide">→</button>
-                        </div>
-
-                    </div>
-
-                    <div class="hero-floating-card">
-                        <span class="floating-icon">♡</span>
-                        <div>
-                            <strong>One Mission</strong>
-                            <small>A Better Tomorrow</small>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- ABOUT -->
-            <section class="about-section" id="about">
-
-                <div class="section-heading reveal">
-                    <span>WHO WE ARE</span>
-                    <h2>Driven by Kindness.<br>United by Humanity.</h2>
-                    <p>
-                        We are a community-focused foundation working to bring
-                        hope, dignity and support to people who need it most.
-                    </p>
-                </div>
-
-                <div class="about-content">
-
-                    <div class="about-image reveal">
-                        <div class="about-image-inner">
-                            DAF<br>Serving Humanity
-                        </div>
-                    </div>
-
-                    <div class="about-text reveal">
-                        <span class="small-label">OUR STORY</span>
-                        <h3>A Small Beginning with a Bigger Purpose.</h3>
-
-                        <p>
-                            Established in 2023, Dilnawaz Ahmed Foundation
-                            began with a simple belief: even a small act of
-                            kindness can create a meaningful difference in
-                            someone's life.
-                        </p>
-
-                        <p>
-                            Through food distribution, educational support
-                            and community welfare initiatives, we strive to
-                            reach families with care, respect and compassion.
-                        </p>
-
-                        <a href="#projects" class="text-link">Discover Our Work →</a>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- PROJECTS -->
-            <section class="projects-section" id="projects">
-
-                <div class="section-heading reveal">
-                    <span>WHAT WE DO</span>
-                    <h2>Our Projects</h2>
-                    <p>
-                        Every initiative is a step towards a more caring,
-                        supportive and compassionate community.
-                    </p>
-                </div>
-
-                <div class="project-grid">
-
-                    <article class="project-card reveal">
-                        <span class="project-number">01</span>
-                        <h3>Ramzan Ration Drive</h3>
-                        <p>
-                            Providing essential ration packages to families
-                            so they can observe the holy month with dignity
-                            and peace of mind.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <span class="project-number">02</span>
-                        <h3>Iftar Boxes</h3>
-                        <p>
-                            Distributing prepared iftar meals to individuals
-                            and families during the blessed month of Ramzan.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <span class="project-number">03</span>
-                        <h3>Monthly Food Drive</h3>
-                        <p>
-                            Organizing regular food distribution, including
-                            biryani meals, for people in underserved areas.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <span class="project-number">04</span>
-                        <h3>Madrasa Project</h3>
-                        <p>
-                            Supporting students through reading tables,
-                            Quran Pak, air coolers, heaters and warm sweaters.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <span class="project-number">05</span>
-                        <h3>Roadside Drive of Hope</h3>
-                        <p>
-                            Reaching people on the roadside with practical
-                            assistance, food and thoughtful acts of kindness.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                    <article class="project-card reveal">
-                        <span class="project-number">06</span>
-                        <h3>Atta Drive</h3>
-                        <p>
-                            Helping deserving households with flour
-                            distribution to support their everyday food needs.
-                        </p>
-                        <a href="#contact">Learn More →</a>
-                    </article>
-
-                </div>
-            </section>
-
-
-            <!-- PROJECT DETAILS -->
-            <section class="project-details-section">
-
-                <div class="section-heading reveal">
-                    <span>OUR APPROACH</span>
-                    <h2>Support that Reaches Real Lives</h2>
-                    <p>
-                        We focus on practical assistance that responds to
-                        everyday needs in our communities.
-                    </p>
-                </div>
-
-                <div class="project-details-grid">
-
-                    <div class="project-detail reveal">
-                        <div class="detail-icon">♡</div>
-                        <div>
-                            <h3>Food Assistance</h3>
-                            <p>
-                                Essential food support for families and
-                                individuals facing difficult circumstances.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-detail reveal">
-                        <div class="detail-icon">✦</div>
-                        <div>
-                            <h3>Education Support</h3>
-                            <p>
-                                Learning resources and basic facilities
-                                for students in madrasa environments.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-detail reveal">
-                        <div class="detail-icon">☼</div>
-                        <div>
-                            <h3>Seasonal Care</h3>
-                            <p>
-                                Practical support such as warm clothing,
-                                heaters and cooling facilities when needed.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="project-detail reveal">
-                        <div class="detail-icon">⌂</div>
-                        <div>
-                            <h3>Community Outreach</h3>
-                            <p>
-                                Taking support beyond familiar spaces and
-                                reaching people where assistance is needed.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- IMPACT -->
-            <section class="impact-section" id="impact">
-
-                <div class="section-heading reveal">
-                    <span>OUR IMPACT</span>
-                    <h2>Every Number Represents a Story</h2>
-                    <p>
-                        Our work is built on the belief that every contribution
-                        and every act of service matters.
-                    </p>
-                </div>
-
-                <div class="impact-grid">
-
-                    <div class="impact-card reveal">
-                        <strong data-count="25">0</strong>
-                        <span>Projects & Drives</span>
-                    </div>
-
-                    <div class="impact-card reveal">
-                        <strong data-count="87">0</strong>
-                        <span>Volunteers & Supporters</span>
-                    </div>
-
-                    <div class="impact-card reveal">
-                        <strong data-count="1700">0</strong>
-                        <span>People Reached</span>
-                    </div>
-
-                    <div class="impact-card reveal">
-                        <strong data-count="159">0</strong>
-                        <span>Families Supported</span>
-                    </div>
-
-                    <div class="impact-card reveal">
-                        <strong data-count="5">0</strong>
-                        <span>Core Initiatives</span>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- GALLERY -->
-            <section class="gallery-section" id="gallery">
-
-                <div class="section-heading reveal">
-                    <span>MOMENTS THAT MATTER</span>
-                    <h2>Our Gallery</h2>
-                    <p>
-                        A glimpse into the moments, people and initiatives
-                        that make our mission meaningful.
-                    </p>
-                </div>
-
-                <div class="gallery-grid">
-
-                    <div class="gallery-item gallery-large reveal">
-                        <div class="gallery-placeholder">Moments of Humanity</div>
-                        <span>Community Support</span>
-                    </div>
-
-                    <div class="gallery-item reveal">
-                        <div class="gallery-placeholder">Food Drive</div>
-                        <span>Food Distribution</span>
-                    </div>
-
-                    <div class="gallery-item reveal">
-                        <div class="gallery-placeholder">Ramzan</div>
-                        <span>Ramzan Initiative</span>
-                    </div>
-
-                    <div class="gallery-item reveal">
-                        <div class="gallery-placeholder">Education</div>
-                        <span>Madrasa Support</span>
-                    </div>
-
-                    <div class="gallery-item reveal">
-                        <div class="gallery-placeholder">Together</div>
-                        <span>Our Volunteers</span>
-                    </div>
-
-                </div>
-            </section>
-
-
-            <!-- DONATE -->
-            <section class="donate-section" id="donate">
-                <span>BE A PART OF THE CHANGE</span>
-
-                <h2>Your Kindness Can Make a Difference.</h2>
+            <div class="theme-options" id="themeOptions">
+
+                <button class="theme-option" data-theme="margalla">
+                    <span class="theme-swatch margalla-swatch"></span>
+                    Margalla Mist
+                </button>
+
+                <button class="theme-option" data-theme="blue">
+                    <span class="theme-swatch blue-swatch"></span>
+                    Institutional Blue
+                </button>
+
+                <button class="theme-option" data-theme="ivory">
+                    <span class="theme-swatch ivory-swatch"></span>
+                    Ivory Press
+                </button>
+
+                <button class="theme-option" data-theme="sage">
+                    <span class="theme-swatch sage-swatch"></span>
+                    Sage Calm
+                </button>
+
+                <button class="theme-option" data-theme="indigo">
+                    <span class="theme-swatch indigo-swatch"></span>
+                    Indigo Night
+                </button>
+
+                <button class="theme-option" data-theme="graphite">
+                    <span class="theme-swatch graphite-swatch"></span>
+                    Graphite
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =====================================
+             HERO SECTION
+        ====================================== -->
+
+        <section class="hero-section" id="home">
+
+            <div class="hero-text">
+
+                <span class="hero-eyebrow">
+                    DILNAWAZ AHMED FOUNDATION
+                </span>
+
+                <h1>
+                    Small Acts.<br>
+                    <span>Greater Humanity.</span>
+                </h1>
 
                 <p>
-                    Every contribution helps us extend support, spread hope
-                    and serve more people. Join us in making compassion
-                    a part of everyday life.
+                    We believe that every act of kindness has
+                    the power to transform a life. Together,
+                    we are building a world where compassion
+                    reaches everyone.
                 </p>
 
-                <a href="#contact" class="donate-button">Support Our Mission →</a>
-            </section>
+                <div class="hero-actions">
 
+                    <a href="#projects" class="hero-button">
+                        Explore Our Work →
+                    </a>
 
-            <!-- CONTACT -->
-            <section class="contact-section" id="contact">
+                    <a href="#donate" class="hero-secondary">
+                        Support Our Mission
+                    </a>
 
-                <div class="section-heading reveal">
-                    <span>GET IN TOUCH</span>
-                    <h2>Let's Make a Difference Together</h2>
-                    <p>
-                        Connect with us to volunteer, collaborate or learn
-                        more about our community initiatives.
-                    </p>
                 </div>
 
-                <div class="contact-content">
+                <div class="hero-caption">
+                    <span class="caption-line"></span>
+                    Serving humanity with dignity since 2023
+                </div>
 
-                    <div class="contact-info reveal">
-                        <span class="small-label">CONTACT DAF</span>
-                        <h3>We Would Love to Hear from You.</h3>
+            </div>
 
-                        <p>
-                            Whether you want to support a project, volunteer
-                            your time or ask a question, feel free to reach out.
-                        </p>
 
-                        <div class="contact-line">
-                            <span>✉</span>
-                            <p>Email: Add official email address</p>
+            <!-- HERO IMAGE SLIDER -->
+
+            <div class="hero-visual">
+
+                <div class="hero-slider" id="heroSlider">
+
+                    <div class="slide active" aria-hidden="false">
+
+                        <div class="slide-image slide-one">
+
+                            <div class="slide-caption">
+
+                                <span>01 / SERVING HUMANITY</span>
+
+                                <h3>
+                                    Kindness Makes<br>
+                                    Life Beautiful.
+                                </h3>
+
+                            </div>
+
                         </div>
 
-                        <div class="contact-line">
-                            <span>☎</span>
-                            <p>Phone: Add official contact number</p>
-                        </div>
-
-                        <div class="contact-line">
-                            <span>⌖</span>
-                            <p>Location: Pakistan</p>
-                        </div>
                     </div>
 
-                    <form class="contact-form reveal" action="#" method="post">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="text" name="subject" placeholder="Subject">
-                        <textarea name="message" placeholder="Write your message..." required></textarea>
-                        <button type="submit">Send Message →</button>
-                    </form>
+
+                    <div class="slide" aria-hidden="true">
+
+                        <div class="slide-image slide-two">
+
+                            <div class="slide-caption">
+
+                                <span>02 / FOOD DISTRIBUTION</span>
+
+                                <h3>
+                                    Sharing Food.<br>
+                                    Sharing Hope.
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="slide" aria-hidden="true">
+
+                        <div class="slide-image slide-three">
+
+                            <div class="slide-caption">
+
+                                <span>03 / COMMUNITY SUPPORT</span>
+
+                                <h3>
+                                    Together We Can<br>
+                                    Make a Difference.
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="slider-controls">
+
+                        <button
+                            id="previousSlide"
+                            aria-label="Previous slide">
+                            ←
+                        </button>
+
+                        <button
+                            id="nextSlide"
+                            aria-label="Next slide">
+                            →
+                        </button>
+
+                    </div>
 
                 </div>
-            </section>
-
-        </main>
 
 
-        <!-- FOOTER -->
-        <footer class="main-footer">
+                <div class="hero-floating-card">
 
-            <div class="footer-content">
+                    <span class="floating-icon">♡</span>
 
-                <div class="footer-about">
-                    <a href="#home" class="footer-brand">DAF<span>.</span></a>
+                    <div>
+                        <strong>One Mission</strong>
+                        <small>A Better Tomorrow</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             ABOUT SECTION
+        ====================================== -->
+
+        <section class="about-section" id="about">
+
+            <div class="section-heading">
+
+                <span>WHO WE ARE</span>
+
+                <h2>
+                    Driven by Humanity.<br>
+                    United by Compassion.
+                </h2>
+
+                <p>
+                    Dilnawaz Ahmed Foundation is committed
+                    to supporting communities through
+                    meaningful humanitarian initiatives.
+                </p>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="about-image">
+
+                    <div class="about-image-inner">
+                        COMPASSION IN ACTION
+                    </div>
+
+                </div>
+
+
+                <div class="about-text">
+
+                    <span class="small-label">
+                        OUR PURPOSE
+                    </span>
+
+                    <h3>
+                        Every person deserves care,
+                        respect and hope.
+                    </h3>
+
                     <p>
-                        Dilnawaz Ahmed Foundation is committed to serving
-                        humanity through compassion, community support
-                        and meaningful action.
+                        Since 2023, our foundation has been
+                        working to bring practical support
+                        to people who need it most.
+
+                        From food distribution to educational
+                        support, our mission is built around
+                        dignity, service and collective action.
                     </p>
+
+                    <a href="#projects" class="text-link">
+                        Discover Our Initiatives →
+                    </a>
+
                 </div>
 
-                <div class="footer-column">
-                    <h4>QUICK LINKS</h4>
-                    <div class="footer-links">
-                        <a href="#home">Home</a>
-                        <a href="#about">About Us</a>
-                        <a href="#projects">Our Projects</a>
-                        <a href="#impact">Our Impact</a>
-                        <a href="#gallery">Gallery</a>
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROJECTS SECTION
+        ====================================== -->
+
+        <section class="projects-section" id="projects">
+
+            <div class="section-heading">
+
+                <span>WHAT WE DO</span>
+
+                <h2>Our Projects</h2>
+
+                <p>
+                    Every initiative represents a commitment
+                    to making everyday life a little better
+                    for someone.
+                </p>
+
+            </div>
+
+
+            <div class="project-grid">
+
+                <!-- PROJECT 1 -->
+
+                <article class="project-card" id="ramzan-ration">
+
+                    <div class="project-number">01</div>
+
+                    <div class="project-icon">◈</div>
+
+                    <h3>Ramzan Ration Drive</h3>
+
+                    <p>
+                        Providing essential food supplies
+                        to deserving families during
+                        the blessed month of Ramadan.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 2 -->
+
+                <article class="project-card" id="iftar-boxes">
+
+                    <div class="project-number">02</div>
+
+                    <div class="project-icon">☾</div>
+
+                    <h3>Iftar Boxes</h3>
+
+                    <p>
+                        Distributing Iftar meals to
+                        individuals and families
+                        during Ramadan.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 3 -->
+
+                <article class="project-card" id="monthly-food">
+
+                    <div class="project-number">03</div>
+
+                    <div class="project-icon">♡</div>
+
+                    <h3>Monthly Food Drive</h3>
+
+                    <p>
+                        Sharing freshly prepared meals,
+                        including biryani, with
+                        deserving communities.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 4 -->
+
+                <article class="project-card" id="madrasa-project">
+
+                    <div class="project-number">04</div>
+
+                    <div class="project-icon">⌂</div>
+
+                    <h3>Madrasa Project</h3>
+
+                    <p>
+                        Supporting students with reading
+                        tables, Quran Pak, air coolers,
+                        heaters and sweaters.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 5 -->
+
+                <article class="project-card" id="roadside-hope">
+
+                    <div class="project-number">05</div>
+
+                    <div class="project-icon">✦</div>
+
+                    <h3>Roadside Drive of Hope</h3>
+
+                    <p>
+                        Reaching people on roadsides
+                        with food, kindness and
+                        a message of hope.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+
+                <!-- PROJECT 6 -->
+
+                <article class="project-card" id="atta-drive">
+
+                    <div class="project-number">06</div>
+
+                    <div class="project-icon">▤</div>
+
+                    <h3>Atta Drive</h3>
+
+                    <p>
+                        Distributing flour to help
+                        families meet their essential
+                        household food needs.
+                    </p>
+
+                    <a href="#project-details">
+                        Explore Project →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             PROJECT DETAILS
+        ====================================== -->
+
+        <section class="project-details-section" id="project-details">
+
+            <div class="section-heading">
+
+                <span>OUR INITIATIVES</span>
+
+                <h2>How We Make a Difference</h2>
+
+                <p>
+                    Our projects focus on practical support,
+                    community welfare and human dignity.
+                </p>
+
+            </div>
+
+
+            <div class="project-details-grid">
+
+                <article class="project-detail-card">
+
+                    <h3>Ramzan Ration Drive</h3>
+
+                    <p>
+                        Essential grocery packages are
+                        distributed to deserving families
+                        to help them manage household
+                        food requirements during Ramadan.
+                    </p>
+
+                </article>
+
+
+                <article class="project-detail-card">
+
+                    <h3>Iftar Boxes</h3>
+
+                    <p>
+                        Prepared Iftar boxes are distributed
+                        to people who need assistance
+                        during the holy month.
+                    </p>
+
+                </article>
+
+
+                <article class="project-detail-card">
+
+                    <h3>Monthly Food Drive</h3>
+
+                    <p>
+                        Monthly meal distribution initiatives
+                        provide freshly prepared food,
+                        including biryani, to communities.
+                    </p>
+
+                </article>
+
+
+                <article class="project-detail-card">
+
+                    <h3>Madrasa Project</h3>
+
+                    <p>
+                        Educational support includes reading
+                        tables, Quran Pak, air coolers,
+                        heaters and sweaters for students.
+                    </p>
+
+                </article>
+
+
+                <article class="project-detail-card">
+
+                    <h3>Roadside Drive of Hope</h3>
+
+                    <p>
+                        This initiative reaches random
+                        roadside individuals with food
+                        and humanitarian support.
+                    </p>
+
+                </article>
+
+
+                <article class="project-detail-card">
+
+                    <h3>Atta Drive</h3>
+
+                    <p>
+                        Flour distribution helps families
+                        fulfil a basic household food need.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             IMPACT STATISTICS
+        ====================================== -->
+
+        <section class="impact-section" id="impact">
+
+            <div class="section-heading">
+
+                <span>OUR JOURNEY OF IMPACT</span>
+
+                <h2>
+                    Real Numbers.<br>
+                    Real Difference.
+                </h2>
+
+                <p>
+                    Every number represents an initiative,
+                    an effort and a commitment
+                    to serving humanity.
+                </p>
+
+            </div>
+
+
+            <div class="impact-grid">
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">♡</div>
+
+                    <strong data-count="25">0</strong>
+
+                    <span>Food Drives</span>
+
+                    <small>Community Food Initiatives</small>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">⌂</div>
+
+                    <strong data-count="87">0</strong>
+
+                    <span>Madrasa Projects</span>
+
+                    <small>Educational & Madrasa Support</small>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">☾</div>
+
+                    <strong data-count="1700">0</strong>
+
+                    <span>Iftar Boxes</span>
+
+                    <small>Ramzan Food Distribution</small>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">▣</div>
+
+                    <strong data-count="159">0</strong>
+
+                    <span>Ramzan Ration</span>
+
+                    <small>Ration Distribution</small>
+
+                </div>
+
+
+                <div class="impact-card">
+
+                    <div class="impact-icon">✦</div>
+
+                    <strong data-count="5">0</strong>
+
+                    <span>Roadside Ration of Hope</span>
+
+                    <small>Roadside Humanitarian Drives</small>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================
+             GALLERY
+        ====================================== -->
+
+        <section class="gallery-section" id="gallery">
+
+            <div class="section-heading">
+
+                <span>MOMENTS THAT MATTER</span>
+
+                <h2>Our Gallery</h2>
+
+                <p>
+                    Real moments from our journey
+                    of service and compassion.
+                </p>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item gallery-large">
+                    <div class="gallery-placeholder">
+                        Foundation Activities
                     </div>
                 </div>
 
-                <div class="footer-column">
-                    <h4>GET INVOLVED</h4>
-                    <div class="footer-links">
-                        <a href="#donate">Donate</a>
-                        <a href="#contact">Volunteer</a>
-                        <a href="#contact">Contact Us</a>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Food Distribution
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Community Support
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Ramzan Initiatives
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        Madrasa Project
                     </div>
                 </div>
 
             </div>
 
-            <div class="footer-bottom">
-                <span>© <span class="current-year"></span> Dilnawaz Ahmed Foundation. All rights reserved.</span>
-                <span>Made with compassion.</span>
+        </section>
+
+
+        <!-- =====================================
+             DONATION SECTION
+        ====================================== -->
+
+        <section class="donate-section" id="donate">
+
+            <div class="donate-content">
+
+                <span>BE PART OF THE CHANGE</span>
+
+                <h2>
+                    Your Kindness Can Change
+                    Someone's Tomorrow.
+                </h2>
+
+                <p>
+                    Your support helps us continue
+                    humanitarian initiatives and
+                    reach more people in need.
+                </p>
+
+                <a href="#contact" class="donate-button">
+                    Get Involved With Us →
+                </a>
+
+                <small>
+                    Official donation and bank details
+                    will be published after verification.
+                </small>
+
             </div>
 
-        </footer>
+        </section>
 
-    </div>
 
-    <script src="script.js"></script>
+        <!-- =====================================
+             CONTACT SECTION
+        ====================================== -->
+
+        <section class="contact-section" id="contact">
+
+            <div class="section-heading">
+
+                <span>GET IN TOUCH</span>
+
+                <h2>
+                    Let's Make a Difference Together.
+                </h2>
+
+                <p>
+                    Have a question, want to volunteer,
+                    or wish to support our work?
+                    Connect with us.
+                </p>
+
+            </div>
+
+
+            <div class="contact-content">
+
+
+                <div class="contact-card">
+
+                    <span>✉</span>
+
+                    <h3>Email</h3>
+
+                    <p>
+                        Official email address coming soon.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <span>⌖</span>
+
+                    <h3>Location</h3>
+
+                    <p>
+                        Official foundation address coming soon.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-card">
+
+                    <span>♡</span>
+
+                    <h3>Join Us</h3>
+
+                    <p>
+                        Be part of our mission
+                        to serve humanity.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="main-footer">
+
+        <div class="footer-brand">
+            DAF<span>.</span>
+        </div>
+
+        <p>
+            Dilnawaz Ahmed Foundation
+        </p>
+
+        <p>
+            Serving Humanity Since 2023.
+        </p>
+
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#impact">Our Impact</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#donate">Donate</a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            © <span class="current-year"></span>
+            Dilnawaz Ahmed Foundation.
+            All Rights Reserved.
+
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script src="script.js"></script>
+
 </body>
 </html>
