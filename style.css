@@ -2,6 +2,1221 @@
 /* =========================================
    DILNAWAZ AHMED FOUNDATION
    PREMIUM WEBSITE DESIGN
+/* =====================================================
+   DILNAWAZ AHMED FOUNDATION
+   PREMIUM WEBSITE DESIGN
+   Main Stylesheet - style.css
+===================================================== */
+
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap');
+
+/* =====================================================
+   1. THEME VARIABLES
+===================================================== */
+
+:root {
+    --primary: #087f78;
+    --secondary: #d9b5bc;
+    --accent: #e8c9a0;
+
+    --bg: #f7faf9;
+    --surface: #ffffff;
+    --text: #172b2a;
+    --muted: #71817f;
+
+    --border: rgba(20, 60, 55, 0.12);
+    --shadow: 0 15px 45px rgba(20, 50, 45, 0.09);
+
+    --radius: 22px;
+    --font-main: 'DM Sans', sans-serif;
+    --font-heading: 'Playfair Display', serif;
+}
+
+/* Margalla Mist */
+[data-theme="margalla"] {
+    --primary: #087f78;
+    --secondary: #d9b5bc;
+    --bg: #f7faf9;
+    --surface: #ffffff;
+    --text: #172b2a;
+    --muted: #71817f;
+}
+
+/* Institutional Blue */
+[data-theme="blue"] {
+    --primary: #174f91;
+    --secondary: #a9c8e8;
+    --bg: #f3f7fc;
+    --surface: #ffffff;
+    --text: #172a40;
+    --muted: #71849a;
+}
+
+/* Ivory Press */
+[data-theme="ivory"] {
+    --primary: #813b3b;
+    --secondary: #d9b5a6;
+    --bg: #faf6ef;
+    --surface: #fffdf9;
+    --text: #302421;
+    --muted: #87756b;
+}
+
+/* Sage Calm */
+[data-theme="sage"] {
+    --primary: #557b57;
+    --secondary: #c4d1b9;
+    --bg: #f4f7f1;
+    --surface: #ffffff;
+    --text: #26382a;
+    --muted: #778477;
+}
+
+/* Indigo Night */
+[data-theme="indigo"] {
+    --primary: #818cff;
+    --secondary: #a5a9ff;
+    --bg: #111329;
+    --surface: #1c2040;
+    --text: #f3f3ff;
+    --muted: #a6a9c5;
+    --border: rgba(255,255,255,0.12);
+}
+
+/* Graphite */
+[data-theme="graphite"] {
+    --primary: #e0a64c;
+    --secondary: #b9a17d;
+    --bg: #171717;
+    --surface: #242424;
+    --text: #f5f1e9;
+    --muted: #aaa49a;
+    --border: rgba(255,255,255,0.12);
+}
+
+/* =====================================================
+   2. GLOBAL STYLING
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: var(--font-main);
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+section {
+    position: relative;
+}
+
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
+}
+
+/* =====================================================
+   3. INTRO / OPENING SCREEN
+===================================================== */
+
+#intro-screen,
+.intro-screen {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 45%, #ffffff 0%, #edf7f5 50%, #dcebe8 100%);
+
+    transition: opacity 1s ease, visibility 1s ease;
+}
+
+.intro-screen.hide,
+#intro-screen.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.intro-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    width: 90%;
+    max-width: 700px;
+}
+
+/* Intro background glow */
+
+.intro-screen::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(
+        circle,
+        rgba(8,127,120,0.12),
+        transparent 70%
+    );
+    border-radius: 50%;
+    animation: introGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes introGlow {
+    from {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+    to {
+        transform: scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* =====================================================
+   4. WATER BUBBLES
+===================================================== */
+
+.bubbles,
+.bubble-container {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -120px;
+
+    width: var(--size, 45px);
+    height: var(--size, 45px);
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.75),
+        rgba(8,127,120,0.08)
+    );
+
+    border: 1px solid rgba(255,255,255,0.75);
+
+    box-shadow:
+        inset -5px -5px 12px rgba(8,127,120,0.06),
+        0 5px 25px rgba(8,127,120,0.08);
+
+    backdrop-filter: blur(2px);
+
+    animation: bubbleFloat var(--duration, 12s) linear infinite;
+
+    left: var(--left, 50%);
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes bubbleFloat {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.7);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.7;
+    }
+    50% {
+        transform: translate3d(45px, -55vh, 0) scale(1);
+    }
+    100% {
+        transform: translate3d(-35px, -115vh, 0) scale(1.3);
+        opacity: 0;
+    }
+}
+
+/* =====================================================
+   5. FLOATING ALPHABETS
+===================================================== */
+
+.floating-letter {
+    position: absolute;
+    color: var(--primary);
+    font-family: var(--font-heading);
+    font-size: clamp(30px, 6vw, 75px);
+    font-weight: 700;
+
+    opacity: 0;
+    animation: letterArrival 2s ease forwards;
+}
+
+@keyframes letterArrival {
+    0% {
+        opacity: 0;
+        transform: translate(var(--start-x, -300px), var(--start-y, -200px))
+                   rotate(-35deg) scale(0.3);
+        filter: blur(12px);
+    }
+
+    65% {
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0) scale(1);
+    }
+}
+
+/* =====================================================
+   6. LOGO REVEAL
+===================================================== */
+
+.intro-logo {
+    width: min(380px, 80vw);
+    margin: auto;
+    opacity: 0;
+    transform: scale(0.65);
+    animation: logoReveal 2s cubic-bezier(.2,.8,.2,1) forwards;
+    animation-delay: 2.5s;
+}
+
+.intro-logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@keyframes logoReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.65);
+        filter: blur(15px);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.08);
+        filter: blur(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.intro-tagline {
+    margin-top: 22px;
+    font-size: clamp(13px, 2vw, 17px);
+    letter-spacing: 5px;
+    color: #526b67;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1.5s ease forwards;
+    animation-delay: 3.5s;
+}
+
+.intro-skip {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+
+    background: rgba(255,255,255,0.65);
+    border: 1px solid rgba(8,127,120,0.2);
+    color: #315b56;
+
+    padding: 11px 22px;
+    border-radius: 50px;
+
+    font-size: 13px;
+    letter-spacing: 1px;
+
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.intro-skip:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* =====================================================
+   7. ANIMATIONS
+===================================================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =====================================================
+   8. NAVIGATION BAR
+===================================================== */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 17px 5%;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo img {
+    width: 58px;
+    height: 48px;
+    object-fit: contain;
+}
+
+.nav-logo span {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary);
+}
+
+.nav-donate {
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 22px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.nav-donate:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+}
+
+/* =====================================================
+   9. THEME SWITCHER
+===================================================== */
+
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border-radius: 50px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.theme-option:hover,
+.theme-option.active {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.theme-color {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    display: inline-block;
+    background: var(--primary);
+}
+
+/* =====================================================
+   10. HERO SECTION
+===================================================== */
+
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 5%;
+    overflow: hidden;
+}
+
+.hero-content {
+    width: 55%;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease;
+}
+
+.hero-label {
+    display: inline-block;
+    color: var(--primary);
+    background: color-mix(in srgb, var(--primary) 10%, transparent);
+    padding: 9px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(42px, 6vw, 78px);
+    line-height: 1.12;
+    margin-bottom: 25px;
+    color: var(--text);
+}
+
+.hero h1 span {
+    color: var(--primary);
+}
+
+.hero p {
+    max-width: 550px;
+    font-size: 16px;
+    line-height: 1.9;
+    color: var(--muted);
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 28px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+}
+
+.btn-outline:hover {
+    background: var(--surface);
+    border-color: var(--primary);
+}
+
+/* Hero Image */
+
+.hero-image {
+    width: 45%;
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 48% 48% 20px 20px;
+    box-shadow: var(--shadow);
+}
+
+.hero-image::before {
+    content: "";
+    position: absolute;
+    inset: -20px;
+    border: 1px solid var(--secondary);
+    border-radius: 48% 48% 30px 30px;
+    z-index: -1;
+}
+
+/* =====================================================
+   11. HERO SLIDER
+===================================================== */
+
+.hero-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+.slide.active {
+    display: flex;
+}
+
+.slider-controls {
+    display: flex;
+    gap: 12px;
+    margin-top: 35px;
+}
+
+.slider-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--primary);
+    font-size: 20px;
+    transition: 0.3s;
+}
+
+.slider-btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+/* =====================================================
+   12. SECTION HEADINGS
+===================================================== */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-heading span {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+.section-heading h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 15px 0;
+}
+
+.section-heading p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+/* =====================================================
+   13. PROJECT CARDS
+===================================================== */
+
+.projects-section {
+    padding: 100px 5%;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 235px;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.project-card:hover img {
+    transform: scale(1.06);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* =====================================================
+   14. IMPACT / STATISTICS SECTION
+===================================================== */
+
+.impact-section {
+    padding: 100px 5%;
+    background: var(--surface);
+}
+
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+.impact-card {
+    text-align: center;
+    padding: 35px 20px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg);
+    transition: 0.4s;
+}
+
+.impact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.impact-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+.impact-number {
+    display: block;
+    font-size: 42px;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.impact-card h3 {
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+/* =====================================================
+   15. ANIMATED GRAPH
+===================================================== */
+
+.impact-visual {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.graph-bars {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    height: 250px;
+    gap: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.graph-bar {
+    width: 12%;
+    height: var(--height, 50%);
+    min-height: 5px;
+    background: linear-gradient(to top, var(--primary), var(--secondary));
+    border-radius: 12px 12px 0 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    animation: growBar 1.5s ease forwards;
+}
+
+@keyframes growBar {
+    to {
+        transform: scaleY(1);
+    }
+}
+
+.graph-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =====================================================
+   16. ABOUT SECTION
+===================================================== */
+
+.about-section {
+    padding: 100px 5%;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: var(--shadow);
+}
+
+.about-content h2 {
+    font-family: var(--font-heading);
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.about-content p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 20px;
+}
+
+/* =====================================================
+   17. GALLERY
+===================================================== */
+
+.gallery-section {
+    padding: 100px 5%;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+    height: 280px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* =====================================================
+   18. DONATION SECTION
+===================================================== */
+
+.donation-section {
+    padding: 90px 5%;
+    text-align: center;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        color-mix(in srgb, var(--primary) 65%, #172b2a)
+    );
+    color: white;
+}
+
+.donation-section h2 {
+    font-family: var(--font-heading);
+    font-size: clamp(32px, 4vw, 50px);
+    margin-bottom: 20px;
+}
+
+.donation-section p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.9;
+    opacity: 0.9;
+}
+
+/* =====================================================
+   19. FOOTER
+===================================================== */
+
+.footer {
+    background: #142b29;
+    color: #ffffff;
+    padding: 75px 5% 25px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 45px;
+}
+
+.footer h3 {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    margin-bottom: 22px;
+}
+
+.footer p,
+.footer a {
+    color: #b9c7c3;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-top: 50px;
+    padding-top: 22px;
+    text-align: center;
+    color: #a9b8b4;
+    font-size: 12px;
+}
+
+/* =====================================================
+   20. CONTACT FORM
+===================================================== */
+
+.contact-section {
+    padding: 100px 5%;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: auto;
+    background: var(--surface);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 18px;
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-family: inherit;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--primary);
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* =====================================================
+   21. MOBILE MENU
+===================================================== */
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 28px;
+}
+
+/* =====================================================
+   22. RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-content {
+        width: 55%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .navbar {
+        padding: 14px 5%;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+
+        padding: 25px 7%;
+        gap: 22px;
+
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 65px;
+    }
+
+    .hero-content,
+    .hero-image {
+        width: 100%;
+    }
+
+    .hero-content {
+        margin-bottom: 55px;
+    }
+
+    .hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image img {
+        height: 350px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-image img {
+        height: 350px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .slide.active {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .projects-grid,
+    .impact-grid,
+    .gallery-grid,
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .projects-section,
+    .impact-section,
+    .about-section,
+    .gallery-section,
+    .contact-section {
+        padding: 70px 5%;
+    }
+
+    .intro-logo {
+        width: 85%;
+    }
+
+    .intro-tagline {
+        letter-spacing: 3px;
+    }
+
+    .intro-skip {
+        right: 20px;
+        bottom: 22px;
+    }
+
+    .contact-form {
+        padding: 25px;
+    }
+
+    .graph-bars {
+        height: 180px;
+        gap: 10px;
+    }
+
+    .impact-number {
+        font-size: 35px;
+    }
+}
+
+/* =====================================================
+   23. ACCESSIBILITY
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
 ========================================= */
 
 :root {
