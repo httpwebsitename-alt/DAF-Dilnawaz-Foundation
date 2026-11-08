@@ -1,323 +1,267 @@
+/* =====================================================
+   DAF - FINAL THEME & SLIDER FIXES
+   Works with all six DAF themes
+===================================================== */
 
-/* ==========================================
-   DAF - DEFINITIVE LAYOUT CORRECTION
-   Theme sidebar + navigation + hero slider
-========================================== */
-
-/* ---------- THEME SIDEBAR ---------- */
-
-/* This element must be a direct child of BODY */
-body > .theme-picker {
-    position: fixed !important;
-    top: 50vh !important;
-    left: 14px !important;
-    right: auto !important;
-    bottom: auto !important;
-
-    transform: translateY(-50%) !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    width: 58px !important;
-    height: auto !important;
-    min-height: 0 !important;
-
-    margin: 0 !important;
-    padding: 9px 6px !important;
-
-    background: rgba(255,255,255,0.96) !important;
-    border: 1px solid rgba(30,65,54,0.10) !important;
-    border-radius: 32px !important;
-
-    box-shadow: 0 8px 28px rgba(0,0,0,0.09) !important;
-
-    overflow: visible !important;
-    z-index: 99999 !important;
-}
-
-/* Hide dropdown heading/button */
-body > .theme-picker .theme-toggle {
-    display: none !important;
-}
-
-/* Keep all theme options visible */
-body > .theme-picker .theme-options,
-body > .theme-picker .theme-options.show {
-    position: static !important;
-
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    width: 100% !important;
-    height: auto !important;
-
-    gap: 9px !important;
-    padding: 0 !important;
-    margin: 0 !important;
-
-    background: transparent !important;
-    border: 0 !important;
-    box-shadow: none !important;
-    overflow: visible !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    animation: none !important;
-}
-
-/* Individual theme circles */
-body > .theme-picker .theme-option {
-    position: relative !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    flex: 0 0 40px !important;
-    width: 40px !important;
-    height: 40px !important;
-    min-height: 40px !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
-
-    border: 2px solid transparent !important;
-    border-radius: 50% !important;
-    background: transparent !important;
-
-    font-size: 0 !important;
-    line-height: 0 !important;
-    white-space: nowrap !important;
-
-    cursor: pointer;
-    transition: border-color .2s ease, background .2s ease !important;
-}
-
-/* Actual color swatches */
-body > .theme-picker .theme-dot,
-body > .theme-picker .theme-swatch {
-    display: block !important;
-    width: 19px !important;
-    height: 19px !important;
-    min-width: 19px !important;
-    margin: 0 !important;
-    border-radius: 50% !important;
-}
-
-/* Selected circle */
-body > .theme-picker .theme-option.selected {
-    border-color: var(--secondary, #c9a56b) !important;
-    background: rgba(201,165,107,.10) !important;
-}
-
-/* Hover circle */
-body > .theme-picker .theme-option:hover {
-    background: rgba(201,165,107,.12) !important;
-}
-
-/* Theme name tooltip */
-body > .theme-picker .theme-option::after {
-    position: absolute !important;
-    left: 49px !important;
-    top: 50% !important;
-
-    padding: 8px 12px !important;
-
-    color: #fff !important;
-    background: #173f35 !important;
-    border-radius: 7px !important;
-
-    font-size: 12px !important;
-    line-height: 1.3 !important;
-    white-space: nowrap !important;
-
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-
-    transform: translateY(-50%) translateX(-5px) !important;
-    transition: .2s ease !important;
-    z-index: 100000 !important;
-}
-
-body > .theme-picker .theme-option:hover::after {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(-50%) translateX(0) !important;
-}
-
-/* Names based on theme keys */
-body > .theme-picker .theme-option[data-theme="margalla"]::after {
-    content: "Margalla Mist" !important;
-}
-body > .theme-picker .theme-option[data-theme="blue"]::after {
-    content: "Institutional Blue" !important;
-}
-body > .theme-picker .theme-option[data-theme="ivory"]::after {
-    content: "Ivory Press" !important;
-}
-body > .theme-picker .theme-option[data-theme="sage"]::after {
-    content: "Sage Calm" !important;
-}
-body > .theme-picker .theme-option[data-theme="indigo"]::after {
-    content: "Indigo Night" !important;
-}
-body > .theme-picker .theme-option[data-theme="graphite"]::after {
-    content: "Graphite" !important;
-}
-
-/* ---------- HEADER / NAVIGATION ---------- */
+/* ---------- THEME-AWARE NAVIGATION ---------- */
 
 .main-header {
-    position: sticky;
-    top: 0;
-    z-index: 500;
+    background: color-mix(
+        in srgb,
+        var(--background) 94%,
+        var(--primary) 6%
+    ) !important;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
+    border-bottom: 1px solid var(--border) !important;
 
-    width: 100%;
-    min-height: 86px;
-    padding: 12px 5%;
-
-    background: rgba(255,255,255,.97);
-    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 }
 
-.main-header .brand {
-    flex: 0 0 auto;
-    margin-right: auto;
+.main-nav {
+    background: transparent;
 }
 
-.main-header .main-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: clamp(17px, 2vw, 30px);
-    flex: 0 1 auto;
+.main-nav a {
+    color: var(--text);
 }
 
-.main-header .main-nav a {
-    white-space: nowrap;
+.main-nav a:hover,
+.main-nav a.nav-active {
+    color: var(--primary);
 }
 
-/* ---------- HERO / SLIDER ---------- */
-
-.hero-section {
-    min-height: calc(100vh - 86px);
-    padding-top: 35px;
-    padding-bottom: 35px;
+.main-nav .donate-nav {
+    background: var(--primary);
+    color: #ffffff;
 }
 
-/* Establish slider as positioning parent */
+.main-nav .donate-nav:hover {
+    background: var(--primary-dark);
+    color: #ffffff;
+}
+
+/* Mobile navigation also follows theme */
+
+@media (max-width: 760px) {
+    .main-nav {
+        background: var(--background) !important;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+/* ---------- SLIDER LAYOUT ---------- */
+
+.hero-visual {
+    position: relative;
+    min-width: 0;
+    padding-bottom: 0;
+}
+
 .hero-slider {
-    position: relative !important;
-    overflow: visible !important;
+    position: relative;
+    width: 100%;
+    min-height: 460px;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 6px;
 }
 
-/* Keep slide text in its own lower area */
-.hero-slider .slide-caption {
-    position: absolute !important;
-    left: 38px !important;
-    right: 30px !important;
-    bottom: 38px !important;
-    top: auto !important;
+/* Slider text stays above its background */
 
-    z-index: 3 !important;
-    max-width: 540px;
+.slide-image {
+    padding: clamp(28px, 4vw, 55px);
 }
 
-/* Prevent text from extending under controls */
-.hero-slider .slide-caption h3 {
-    max-width: 100%;
-    line-height: 1.12;
+.slide-caption {
+    position: relative;
+    z-index: 4;
+    max-width: 90%;
+    padding-right: 15px;
+}
+
+.slide-caption span {
+    color: var(--secondary);
+}
+
+.slide-caption h3 {
+    color: #ffffff;
+    max-width: 650px;
     overflow-wrap: break-word;
 }
 
-/* Mission card stays at top, away from slide heading */
-.hero-slider .hero-floating-card {
+/* ---------- ONE MISSION FLOATING CARD ---------- */
+
+/* Move it to the upper-right corner so it
+   cannot cover the slider heading. */
+
+.hero-floating-card {
     position: absolute !important;
-    top: 25px !important;
-    left: -28px !important;
-    right: auto !important;
+
+    top: 22px !important;
+    right: 22px !important;
+    left: auto !important;
     bottom: auto !important;
 
-    z-index: 8 !important;
+    z-index: 8;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    max-width: 220px;
+    padding: 13px 17px;
+
+    background: color-mix(
+        in srgb,
+        var(--background) 90%,
+        var(--primary) 10%
+    ) !important;
+
+    border: 1px solid var(--border);
+
+    border-radius: 9px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.13);
 }
 
-/* Controls stay above slide background */
-.hero-slider .slider-controls {
-    position: absolute;
-    z-index: 9 !important;
+.floating-icon {
+    color: var(--secondary);
 }
 
-/* ---------- RESPONSIVE ---------- */
-
-@media (max-width: 900px) {
-    .main-header {
-        min-height: 76px;
-        padding: 12px 4%;
-        gap: 15px;
-    }
-
-    .main-header .main-nav {
-        gap: 12px;
-    }
-
-    .hero-section {
-        min-height: auto;
-        padding-top: 35px;
-        padding-bottom: 45px;
-    }
-
-    .hero-slider .hero-floating-card {
-        top: 15px !important;
-        left: 15px !important;
-    }
-
-    .hero-slider .slide-caption {
-        left: 22px !important;
-        right: 22px !important;
-        bottom: 25px !important;
-    }
+.hero-floating-card strong {
+    color: var(--primary) !important;
 }
 
-@media (max-width: 600px) {
-    body > .theme-picker {
-        left: 7px !important;
-        top: 50vh !important;
-        width: 48px !important;
-        padding: 7px 4px !important;
-    }
+.hero-floating-card small {
+    color: var(--muted) !important;
+}
 
-    body > .theme-picker .theme-option {
-        width: 34px !important;
-        height: 34px !important;
-        min-height: 34px !important;
-        flex-basis: 34px !important;
-    }
+/* ---------- SLIDER ARROWS ---------- */
 
-    body > .theme-picker .theme-dot,
-    body > .theme-picker .theme-swatch {
-        width: 16px !important;
-        height: 16px !important;
-        min-width: 16px !important;
-    }
+.slider-controls {
+    z-index: 9;
+}
 
-    .hero-slider .slide-caption {
-        left: 18px !important;
+.slider-controls button {
+    background: color-mix(
+        in srgb,
+        var(--primary) 35%,
+        transparent
+    );
+
+    border-color: rgba(255, 255, 255, 0.55);
+    color: #ffffff;
+}
+
+.slider-controls button:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+}
+
+/* ---------- THEME SELECTOR ---------- */
+
+.theme-toggle {
+    background: var(--background);
+    color: var(--primary);
+    border-color: var(--border);
+}
+
+.theme-options {
+    background: var(--surface);
+    border-color: var(--border);
+}
+
+.theme-option {
+    color: var(--text);
+}
+
+.theme-option:hover,
+.theme-option.selected {
+    background: var(--background);
+}
+
+/* ---------- TABLET ---------- */
+
+@media (max-width: 1050px) {
+    .hero-floating-card {
+        top: 18px !important;
         right: 18px !important;
-        bottom: 22px !important;
+        max-width: 190px;
+        padding: 11px 14px;
     }
 
-    .hero-slider .slide-caption h3 {
-        font-size: 30px;
+    .hero-slider {
+        min-height: 390px;
+    }
+
+    .slide-caption h3 {
+        font-size: clamp(27px, 3.5vw, 38px);
+    }
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 760px) {
+    .hero-slider {
+        min-height: 350px;
+    }
+
+    .hero-floating-card {
+        top: 12px !important;
+        right: 12px !important;
+        max-width: 175px;
+        padding: 9px 12px;
+    }
+
+    .hero-floating-card strong {
+        font-size: 11px;
+    }
+
+    .hero-floating-card small {
+        font-size: 9px;
+    }
+
+    .slide-image {
+        padding: 24px;
+    }
+
+    .slide-caption {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .slide-caption h3 {
+        font-size: clamp(26px, 7vw, 34px);
+    }
+
+    .slider-controls {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    .slider-controls button {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ---------- SMALL MOBILE ---------- */
+
+@media (max-width: 420px) {
+    .hero-slider {
+        min-height: 300px;
+    }
+
+    .hero-floating-card {
+        top: 10px !important;
+        right: 10px !important;
+        max-width: 155px;
+        padding: 8px 10px;
+    }
+
+    .slide-caption h3 {
+        font-size: 27px;
     }
 }
