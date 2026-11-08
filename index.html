@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="Dilnawaz Ahmed Foundation — Serving humanity through compassion, dignity and hope since 2023.">
-
     <meta name="theme-color" content="#173f35">
 
     <title>DAF | Dilnawaz Ahmed Foundation</title>
@@ -17,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="layout-fixes.css">
+    <link rel="stylesheet" href="layout-fixes.css">
 </head>
 
 <body>
@@ -29,7 +28,6 @@
 <div class="intro-screen" id="introScreen">
 
     <div class="bubble-container" id="bubbleContainer"></div>
-
     <div class="floating-letters" id="floatingLetters"></div>
 
     <button class="skip-intro" id="skipIntro">
@@ -73,7 +71,102 @@
 
 <div class="main-website" id="mainWebsite">
 
-    <!-- HEADER -->
+    <!-- =====================================
+         FIXED THEME SIDEBAR
+         Independent from navigation
+    ====================================== -->
+
+    <aside class="theme-picker" id="themePicker"
+           aria-label="Choose website colour theme">
+
+        <!-- Hidden compatibility button for existing JavaScript -->
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-expanded="true"
+            aria-label="Theme selector">
+
+            <span class="theme-dot"></span>
+            Themes
+        </button>
+
+        <div class="theme-options" id="themeOptions">
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="margalla"
+                aria-label="Margalla Mist"
+                title="Margalla Mist">
+
+                <span class="theme-swatch margalla-swatch"></span>
+                <span class="theme-name">Margalla Mist</span>
+            </button>
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="blue"
+                aria-label="Institutional Blue"
+                title="Institutional Blue">
+
+                <span class="theme-swatch blue-swatch"></span>
+                <span class="theme-name">Institutional Blue</span>
+            </button>
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="ivory"
+                aria-label="Ivory Press"
+                title="Ivory Press">
+
+                <span class="theme-swatch ivory-swatch"></span>
+                <span class="theme-name">Ivory Press</span>
+            </button>
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="sage"
+                aria-label="Sage Calm"
+                title="Sage Calm">
+
+                <span class="theme-swatch sage-swatch"></span>
+                <span class="theme-name">Sage Calm</span>
+            </button>
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="indigo"
+                aria-label="Indigo Night"
+                title="Indigo Night">
+
+                <span class="theme-swatch indigo-swatch"></span>
+                <span class="theme-name">Indigo Night</span>
+            </button>
+
+            <button
+                class="theme-option"
+                type="button"
+                data-theme="graphite"
+                aria-label="Graphite"
+                title="Graphite">
+
+                <span class="theme-swatch graphite-swatch"></span>
+                <span class="theme-name">Graphite</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         HEADER / NAVIGATION
+    ====================================== -->
 
     <header class="main-header">
 
@@ -84,8 +177,10 @@
         <button
             class="menu-toggle"
             id="menuToggle"
+            type="button"
             aria-label="Toggle navigation"
             aria-expanded="false">
+
             ☰
         </button>
 
@@ -100,58 +195,6 @@
             <a href="#donate" class="donate-nav">Donate</a>
 
         </nav>
-
-        <!-- THEME SELECTOR -->
-
-        <div class="theme-picker">
-
-            <button
-                class="theme-toggle"
-                id="themeToggle"
-                aria-expanded="false"
-                aria-label="Choose website theme">
-
-                <span class="theme-dot"></span>
-                Themes
-                <span>⌄</span>
-
-            </button>
-
-            <div class="theme-options" id="themeOptions">
-
-                <button class="theme-option" data-theme="margalla">
-                    <span class="theme-swatch margalla-swatch"></span>
-                    Margalla Mist
-                </button>
-
-                <button class="theme-option" data-theme="blue">
-                    <span class="theme-swatch blue-swatch"></span>
-                    Institutional Blue
-                </button>
-
-                <button class="theme-option" data-theme="ivory">
-                    <span class="theme-swatch ivory-swatch"></span>
-                    Ivory Press
-                </button>
-
-                <button class="theme-option" data-theme="sage">
-                    <span class="theme-swatch sage-swatch"></span>
-                    Sage Calm
-                </button>
-
-                <button class="theme-option" data-theme="indigo">
-                    <span class="theme-swatch indigo-swatch"></span>
-                    Indigo Night
-                </button>
-
-                <button class="theme-option" data-theme="graphite">
-                    <span class="theme-swatch graphite-swatch"></span>
-                    Graphite
-                </button>
-
-            </div>
-
-        </div>
 
     </header>
 
@@ -202,7 +245,7 @@
             </div>
 
 
-            <!-- HERO IMAGE SLIDER -->
+            <!-- HERO SLIDER -->
 
             <div class="hero-visual">
 
@@ -213,14 +256,12 @@
                         <div class="slide-image slide-one">
 
                             <div class="slide-caption">
-
                                 <span>01 / SERVING HUMANITY</span>
 
                                 <h3>
                                     Kindness Makes<br>
                                     Life Beautiful.
                                 </h3>
-
                             </div>
 
                         </div>
@@ -233,14 +274,12 @@
                         <div class="slide-image slide-two">
 
                             <div class="slide-caption">
-
                                 <span>02 / FOOD DISTRIBUTION</span>
 
                                 <h3>
                                     Sharing Food.<br>
                                     Sharing Hope.
                                 </h3>
-
                             </div>
 
                         </div>
@@ -253,14 +292,12 @@
                         <div class="slide-image slide-three">
 
                             <div class="slide-caption">
-
                                 <span>03 / COMMUNITY SUPPORT</span>
 
                                 <h3>
                                     Together We Can<br>
                                     Make a Difference.
                                 </h3>
-
                             </div>
 
                         </div>
@@ -272,12 +309,14 @@
 
                         <button
                             id="previousSlide"
+                            type="button"
                             aria-label="Previous slide">
                             ←
                         </button>
 
                         <button
                             id="nextSlide"
+                            type="button"
                             aria-label="Next slide">
                             →
                         </button>
@@ -286,6 +325,8 @@
 
                 </div>
 
+
+                <!-- Floating mission card is outside slider text -->
 
                 <div class="hero-floating-card">
 
@@ -393,12 +434,9 @@
 
             <div class="project-grid">
 
-                <!-- PROJECT 1 -->
-
                 <article class="project-card" id="ramzan-ration">
 
                     <div class="project-number">01</div>
-
                     <div class="project-icon">◈</div>
 
                     <h3>Ramzan Ration Drive</h3>
@@ -416,12 +454,9 @@
                 </article>
 
 
-                <!-- PROJECT 2 -->
-
                 <article class="project-card" id="iftar-boxes">
 
                     <div class="project-number">02</div>
-
                     <div class="project-icon">☾</div>
 
                     <h3>Iftar Boxes</h3>
@@ -439,12 +474,9 @@
                 </article>
 
 
-                <!-- PROJECT 3 -->
-
                 <article class="project-card" id="monthly-food">
 
                     <div class="project-number">03</div>
-
                     <div class="project-icon">♡</div>
 
                     <h3>Monthly Food Drive</h3>
@@ -462,12 +494,9 @@
                 </article>
 
 
-                <!-- PROJECT 4 -->
-
                 <article class="project-card" id="madrasa-project">
 
                     <div class="project-number">04</div>
-
                     <div class="project-icon">⌂</div>
 
                     <h3>Madrasa Project</h3>
@@ -485,12 +514,9 @@
                 </article>
 
 
-                <!-- PROJECT 5 -->
-
                 <article class="project-card" id="roadside-hope">
 
                     <div class="project-number">05</div>
-
                     <div class="project-icon">✦</div>
 
                     <h3>Roadside Drive of Hope</h3>
@@ -508,12 +534,9 @@
                 </article>
 
 
-                <!-- PROJECT 6 -->
-
                 <article class="project-card" id="atta-drive">
 
                     <div class="project-number">06</div>
-
                     <div class="project-icon">▤</div>
 
                     <h3>Atta Drive</h3>
@@ -665,7 +688,6 @@
 
             <div class="impact-grid">
 
-
                 <div class="impact-card">
 
                     <div class="impact-icon">♡</div>
@@ -729,7 +751,6 @@
                     <small>Roadside Humanitarian Drives</small>
 
                 </div>
-
 
             </div>
 
@@ -853,7 +874,6 @@
 
             <div class="contact-content">
 
-
                 <div class="contact-card">
 
                     <span>✉</span>
@@ -893,7 +913,6 @@
 
                 </div>
 
-
             </div>
 
         </section>
@@ -901,9 +920,9 @@
     </main>
 
 
-    <!-- =========================================
+    <!-- =====================================
          FOOTER
-    ========================================== -->
+    ====================================== -->
 
     <footer class="main-footer">
 
