@@ -685,7 +685,7 @@ section:not(.hero-section) {
 
 .impact-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   max-width: 1000px;
   margin: auto;
   border: 1px solid rgba(255,255,255,.15);
