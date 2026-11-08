@@ -1,511 +1,427 @@
 
-/* =====================================================
-   DILNAWAZ AHMED FOUNDATION
-   MAIN JAVASCRIPT
-   File: script.js
-===================================================== */
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
+  /* ======================================
+     1. FIRST VISIT INTRO ANIMATION
+  ====================================== */
 
-    /* ================================================
-       1. INTRO SCREEN ELEMENTS
-    ================================================= */
+  const intro = document.getElementById("introScreen");
+  const website = document.getElementById("mainWebsite");
+  const skipButton = document.getElementById("skipIntro");
 
-    const intro = document.getElementById("introScreen");
-    const website = document.getElementById("mainWebsite");
-    const skipButton = document.getElementById("skipIntro");
+  const INTRO_KEY = "dafIntroCompleted";
 
-    const INTRO_DURATION = 7000;
+  function createBubbles() {
+    const container = document.getElementById("bubbleContainer");
 
-    const alreadyVisited =
-        localStorage.getItem("dafIntroCompleted") === "true";
+    if (!container) return;
 
-    let introTimer;
+    container.innerHTML = "";
 
+    for (let i = 0; i < 35; i++) {
+      const bubble = document.createElement("span");
 
-    /* ================================================
-       2. CREATE FLOATING WATER BUBBLES
-    ================================================= */
+      bubble.className = "bubble";
 
-    function createBubbles() {
+      bubble.style.setProperty("--left", Math.random() * 100 + "%");
+      bubble.style.setProperty("--size", (8 + Math.random() * 35) + "px");
+      bubble.style.setProperty("--duration", (7 + Math.random() * 9) + "s");
+      bubble.style.setProperty("--delay", (-Math.random() * 12) + "s");
+      bubble.style.setProperty("--drift", (Math.random() * 150 - 75) + "px");
 
-        const container =
-            document.getElementById("bubbleContainer") ||
-            document.querySelector(".bubble-container") ||
-            document.querySelector(".bubbles");
-
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        for (let i = 0; i < 25; i++) {
-
-            const bubble = document.createElement("div");
-
-            bubble.classList.add("bubble");
-
-            const size = Math.random() * 65 + 15;
-            const left = Math.random() * 100;
-            const duration = Math.random() * 12 + 8;
-            const delay = Math.random() * 10;
-
-            bubble.style.setProperty("--size", size + "px");
-            bubble.style.setProperty("--left", left + "%");
-            bubble.style.setProperty("--duration", duration + "s");
-            bubble.style.setProperty("--delay", delay + "s");
-
-            container.appendChild(bubble);
-
-        }
-
+      container.appendChild(bubble);
     }
+  }
 
+  function createFloatingLetters() {
+    const container = document.getElementById("floatingLetters");
 
-    /* ================================================
-       3. FLOATING ALPHABETS
-    ================================================= */
+    if (!container) return;
 
-    function createFloatingLetters() {
+    container.innerHTML = "";
 
-        const container =
-            document.getElementById("floatingLetters");
+    const letters = ["D", "A", "F"];
 
-        if (!container) return;
+    letters.forEach((letter, index) => {
+      const element = document.createElement("span");
 
-        container.innerHTML = "";
+      element.className = "floating-letter";
+      element.textContent = letter;
 
-        const letters = ["D", "I", "L", "N", "A", "W", "A", "Z"];
+      const positions = [
+        ["-250px", "-180px"],
+        ["0px", "250px"],
+        ["250px", "-180px"]
+      ];
 
-        letters.forEach(function (letter, index) {
+      element.style.setProperty("--start-x", positions[index][0]);
+      element.style.setProperty("--start-y", positions[index][1]);
+      element.style.animationDelay = (index * 0.35) + "s";
 
-            const element = document.createElement("span");
+      container.appendChild(element);
+    });
+  }
 
-            element.textContent = letter;
+  function showWebsite() {
+    if (!intro || !website) return;
 
-            element.classList.add("floating-letter");
+    intro.classList.add("hide");
 
-            const positions = [
-                { left: "12%", top: "20%" },
-                { left: "28%", top: "70%" },
-                { left: "40%", top: "12%" },
-                { right: "15%", top: "25%" },
-                { right: "28%", bottom: "20%" },
-                { right: "42%", top: "75%" },
-                { left: "8%", bottom: "25%" },
-                { right: "8%", top: "65%" }
-            ];
+    website.style.display = "block";
 
-            Object.assign(element.style, positions[index]);
-
-            const directions = [
-                ["-250px", "-180px"],
-                ["250px", "150px"],
-                ["-150px", "220px"],
-                ["220px", "-200px"],
-                ["-220px", "180px"],
-                ["180px", "200px"],
-                ["-200px", "-150px"],
-                ["200px", "-150px"]
-            ];
-
-            element.style.setProperty(
-                "--start-x",
-                directions[index][0]
-            );
-
-            element.style.setProperty(
-                "--start-y",
-                directions[index][1]
-            );
-
-            element.style.animationDelay = (index * 0.22) + "s";
-
-            container.appendChild(element);
-
-        });
-
-    }
-
-
-    /* ================================================
-       4. SHOW MAIN WEBSITE
-    ================================================= */
-
-    function showWebsite() {
-
-        clearTimeout(introTimer);
-
-        if (intro) {
-
-            intro.classList.add("hide");
-
-            setTimeout(function () {
-
-                intro.style.display = "none";
-
-            }, 1000);
-
-        }
-
-        if (website) {
-
-            website.style.display = "block";
-
-            requestAnimationFrame(function () {
-
-                website.classList.add("visible");
-
-            });
-
-        }
-
-        document.body.classList.remove("intro-active");
-
-        localStorage.setItem("dafIntroCompleted", "true");
-
-        initializeScrollAnimations();
-
-    }
-
-
-    /* ================================================
-       5. INTRO INITIALIZATION
-    ================================================= */
-
-    function initializeIntro() {
-
-        if (!intro || !website) return;
-
-        if (alreadyVisited) {
-
-            intro.style.display = "none";
-
-            website.style.display = "block";
-            website.classList.add("visible");
-
-            document.body.classList.remove("intro-active");
-
-            initializeScrollAnimations();
-
-            return;
-
-        }
-
-        createBubbles();
-        createFloatingLetters();
-
-        website.style.display = "none";
-
-        introTimer = setTimeout(function () {
-
-            showWebsite();
-
-        }, INTRO_DURATION);
-
-    }
-
-
-    /* ================================================
-       6. SKIP INTRO BUTTON
-    ================================================= */
-
-    if (skipButton) {
-
-        skipButton.addEventListener("click", function () {
-
-            showWebsite();
-
-        });
-
-    }
-
-
-    /* ================================================
-       7. MOBILE NAVIGATION
-    ================================================= */
-
-    const menuToggle = document.getElementById("menuToggle");
-
-    const nav = document.querySelector(".main-nav") ||
-                document.querySelector(".nav-links");
-
-    if (menuToggle && nav) {
-
-        menuToggle.addEventListener("click", function () {
-
-            nav.classList.toggle("active");
-            nav.classList.toggle("open");
-
-        });
-
-    }
-
-
-    /* Close menu after clicking a navigation link */
-
-    document.querySelectorAll(".main-nav a, .nav-links a")
-        .forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                if (nav) {
-
-                    nav.classList.remove("active");
-                    nav.classList.remove("open");
-
-                }
-
-            });
-
-        });
-
-
-    /* ================================================
-       8. THEME SWITCHER
-    ================================================= */
-
-    const themeButtons = document.querySelectorAll(".theme-option");
-
-    const savedTheme = localStorage.getItem("dafTheme") || "margalla";
-
-    document.documentElement.setAttribute("data-theme", savedTheme);
-
-    function activateTheme(theme) {
-
-        document.documentElement.setAttribute("data-theme", theme);
-
-        localStorage.setItem("dafTheme", theme);
-
-        themeButtons.forEach(function (button) {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.theme === theme
-            );
-
-        });
-
-    }
-
-    themeButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            const theme = button.dataset.theme;
-
-            if (theme) {
-
-                activateTheme(theme);
-
-            }
-
-        });
-
+    requestAnimationFrame(() => {
+      website.classList.add("visible");
     });
 
-    activateTheme(savedTheme);
+    localStorage.setItem(INTRO_KEY, "true");
 
+    setTimeout(() => {
+      intro.style.display = "none";
+    }, 1100);
+  }
 
-    /* ================================================
-       9. SCROLL REVEAL ANIMATIONS
-    ================================================= */
+  function initializeIntro() {
+    if (!intro || !website) return;
 
-    function initializeScrollAnimations() {
+    const alreadyVisited = localStorage.getItem(INTRO_KEY);
 
-        const revealElements = document.querySelectorAll(".reveal");
-
-        if (!("IntersectionObserver" in window)) {
-
-            revealElements.forEach(function (element) {
-
-                element.classList.add("active");
-
-            });
-
-            return;
-
-        }
-
-        const observer = new IntersectionObserver(
-            function (entries) {
-
-                entries.forEach(function (entry) {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add("active");
-
-                        observer.unobserve(entry.target);
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12
-            }
-        );
-
-        revealElements.forEach(function (element) {
-
-            observer.observe(element);
-
-        });
-
+    if (alreadyVisited) {
+      intro.style.display = "none";
+      website.style.display = "block";
+      website.classList.add("visible");
+      return;
     }
 
+    createBubbles();
+    createFloatingLetters();
 
-    /* ================================================
-       10. ANIMATED COUNTERS
-    ================================================= */
+    setTimeout(showWebsite, 6500);
+  }
 
-    function animateCounters() {
+  if (skipButton) {
+    skipButton.addEventListener("click", showWebsite);
+  }
 
-        const counters = document.querySelectorAll("[data-count]");
+  initializeIntro();
 
-        if (!("IntersectionObserver" in window)) return;
 
-        const observer = new IntersectionObserver(function (entries) {
+  /* ======================================
+     2. MOBILE NAVIGATION
+  ====================================== */
 
-            entries.forEach(function (entry) {
+  const menuToggle = document.getElementById("menuToggle");
+  const navigation = document.querySelector(".main-nav");
 
-                if (!entry.isIntersecting) return;
+  if (menuToggle && navigation) {
 
-                const counter = entry.target;
+    menuToggle.addEventListener("click", () => {
+      navigation.classList.toggle("active");
 
-                const target = Number(counter.dataset.count);
+      const isOpen = navigation.classList.contains("active");
 
-                if (!Number.isFinite(target)) return;
-
-                const duration = 1800;
-                const startTime = performance.now();
-
-                function updateCounter(currentTime) {
-
-                    const progress = Math.min(
-                        (currentTime - startTime) / duration,
-                        1
-                    );
-
-                    const eased = 1 - Math.pow(1 - progress, 3);
-
-                    counter.textContent =
-                        Math.floor(target * eased).toLocaleString();
-
-                    if (progress < 1) {
-
-                        requestAnimationFrame(updateCounter);
-
-                    } else {
-
-                        counter.textContent = target.toLocaleString();
-
-                    }
-
-                }
-
-                requestAnimationFrame(updateCounter);
-
-                observer.unobserve(counter);
-
-            });
-
-        }, {
-            threshold: 0.5
-        });
-
-        counters.forEach(function (counter) {
-
-            observer.observe(counter);
-
-        });
-
-    }
-
-
-    /* ================================================
-       11. HERO SLIDER
-    ================================================= */
-
-    function initializeSlider() {
-
-        const slides = document.querySelectorAll(".slide");
-
-        if (slides.length === 0) return;
-
-        let currentSlide = 0;
-
-        const next = document.getElementById("nextSlide");
-        const previous = document.getElementById("previousSlide");
-
-        function displaySlide(index) {
-
-            slides.forEach(function (slide) {
-
-                slide.classList.remove("active");
-
-            });
-
-            currentSlide = (index + slides.length) % slides.length;
-
-            slides[currentSlide].classList.add("active");
-
-        }
-
-        if (next) {
-
-            next.addEventListener("click", function () {
-
-                displaySlide(currentSlide + 1);
-
-            });
-
-        }
-
-        if (previous) {
-
-            previous.addEventListener("click", function () {
-
-                displaySlide(currentSlide - 1);
-
-            });
-
-        }
-
-        displaySlide(0);
-
-        setInterval(function () {
-
-            displaySlide(currentSlide + 1);
-
-        }, 5000);
-
-    }
-
-
-    /* ================================================
-       12. INITIALIZE ALL FEATURES
-    ================================================= */
-
-    initializeIntro();
-
-    animateCounters();
-
-    initializeSlider();
-
-
-    /* ================================================
-       13. CURRENT YEAR
-    ================================================= */
-
-    document.querySelectorAll(".current-year").forEach(function (element) {
-
-        element.textContent = new Date().getFullYear();
-
+      menuToggle.textContent = isOpen ? "✕" : "☰";
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
     });
 
+    navigation.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navigation.classList.remove("active");
+        menuToggle.textContent = "☰";
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
 
-    console.log("DAF Website Initialized Successfully!");
+  }
+
+
+  /* ======================================
+     3. SIX THEME SYSTEM
+  ====================================== */
+
+  const themes = {
+    margalla: {
+      primary: "#173f35",
+      primaryDark: "#0d2c25",
+      secondary: "#c5a36b",
+      background: "#f8f7f2",
+      surface: "#ffffff",
+      text: "#202b27",
+      muted: "#758078"
+    },
+
+    blue: {
+      primary: "#173d65",
+      primaryDark: "#102b49",
+      secondary: "#77a8cf",
+      background: "#f3f7fb",
+      surface: "#ffffff",
+      text: "#243448",
+      muted: "#718094"
+    },
+
+    ivory: {
+      primary: "#544331",
+      primaryDark: "#332719",
+      secondary: "#b18b55",
+      background: "#faf6ed",
+      surface: "#ffffff",
+      text: "#352f27",
+      muted: "#877d6e"
+    },
+
+    sage: {
+      primary: "#48634f",
+      primaryDark: "#293d30",
+      secondary: "#c1a77c",
+      background: "#f2f5ed",
+      surface: "#ffffff",
+      text: "#2d3930",
+      muted: "#7b887b"
+    },
+
+    indigo: {
+      primary: "#38345e",
+      primaryDark: "#211e3e",
+      secondary: "#b6a3df",
+      background: "#f4f2fa",
+      surface: "#ffffff",
+      text: "#302d42",
+      muted: "#7c7890"
+    },
+
+    graphite: {
+      primary: "#343c40",
+      primaryDark: "#1c2428",
+      secondary: "#b9a47c",
+      background: "#f2f3f2",
+      surface: "#ffffff",
+      text: "#242c30",
+      muted: "#788186"
+    }
+  };
+
+  function applyTheme(themeName) {
+    const selected = themes[themeName];
+
+    if (!selected) return;
+
+    const root = document.documentElement;
+
+    root.style.setProperty("--primary", selected.primary);
+    root.style.setProperty("--primary-dark", selected.primaryDark);
+    root.style.setProperty("--secondary", selected.secondary);
+    root.style.setProperty("--background", selected.background);
+    root.style.setProperty("--surface", selected.surface);
+    root.style.setProperty("--text", selected.text);
+    root.style.setProperty("--muted", selected.muted);
+
+    localStorage.setItem("dafTheme", themeName);
+  }
+
+  const savedTheme = localStorage.getItem("dafTheme") || "margalla";
+
+  applyTheme(savedTheme);
+
+
+  /* ======================================
+     4. SCROLL REVEAL ANIMATIONS
+  ====================================== */
+
+  const revealElements = document.querySelectorAll(
+    ".section-heading, .about-content, .project-card, .impact-card, .gallery-item, .contact-card, .donate-content"
+  );
+
+  revealElements.forEach(element => {
+    element.classList.add("reveal");
+  });
+
+  if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver((entries, obs) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          obs.unobserve(entry.target);
+        }
+
+      });
+
+    }, {
+      threshold: 0.12
+    });
+
+    revealElements.forEach(element => observer.observe(element));
+
+  } else {
+    revealElements.forEach(element => element.classList.add("active"));
+  }
+
+
+  /* ======================================
+     5. IMPACT COUNTERS
+  ====================================== */
+
+  function animateCounter(element) {
+    if (element.dataset.animated === "true") return;
+
+    element.dataset.animated = "true";
+
+    const target = Number(element.dataset.count);
+
+    if (!Number.isFinite(target)) return;
+
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function updateCounter(currentTime) {
+
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      element.textContent = Math.floor(target * easedProgress).toLocaleString();
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        element.textContent = target.toLocaleString();
+      }
+
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  const counterElements = document.querySelectorAll("[data-count]");
+
+  if ("IntersectionObserver" in window) {
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        }
+
+      });
+
+    }, {
+      threshold: 0.5
+    });
+
+    counterElements.forEach(counter => counterObserver.observe(counter));
+
+  } else {
+    counterElements.forEach(animateCounter);
+  }
+
+
+  /* ======================================
+     6. HERO SLIDER ENGINE
+     Ready for multiple slides
+  ====================================== */
+
+  const slides = document.querySelectorAll(".slide");
+  const nextButton = document.getElementById("nextSlide");
+  const previousButton = document.getElementById("previousSlide");
+
+  let currentSlide = 0;
+  let sliderTimer;
+
+  function showSlide(index) {
+
+    if (!slides.length) return;
+
+    slides.forEach(slide => {
+      slide.classList.remove("active");
+      slide.setAttribute("aria-hidden", "true");
+    });
+
+    currentSlide = (index + slides.length) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+    slides[currentSlide].setAttribute("aria-hidden", "false");
+  }
+
+  function startSlider() {
+    if (slides.length < 2) return;
+
+    clearInterval(sliderTimer);
+
+    sliderTimer = setInterval(() => {
+      showSlide(currentSlide + 1);
+    }, 5000);
+  }
+
+  if (slides.length) {
+    showSlide(0);
+    startSlider();
+  }
+
+  if (nextButton) {
+    nextButton.addEventListener("click", () => {
+      showSlide(currentSlide + 1);
+      startSlider();
+    });
+  }
+
+  if (previousButton) {
+    previousButton.addEventListener("click", () => {
+      showSlide(currentSlide - 1);
+      startSlider();
+    });
+  }
+
+
+  /* ======================================
+     7. AUTOMATIC CURRENT YEAR
+  ====================================== */
+
+  document.querySelectorAll(".current-year").forEach(element => {
+    element.textContent = new Date().getFullYear();
+  });
+
+
+  /* ======================================
+     8. ACTIVE NAVIGATION HIGHLIGHT
+  ====================================== */
+
+  const navLinks = document.querySelectorAll(".main-nav a");
+
+  const sections = document.querySelectorAll("main section[id]");
+
+  if ("IntersectionObserver" in window && sections.length) {
+
+    const sectionObserver = new IntersectionObserver(entries => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          navLinks.forEach(link => {
+            link.classList.toggle(
+              "nav-active",
+              link.getAttribute("href") === "#" + entry.target.id
+            );
+          });
+
+        }
+
+      });
+
+    }, {
+      rootMargin: "-30% 0px -60% 0px"
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+  }
+
+
+  console.log("DAF Website Successfully Initialized");
 
 });
