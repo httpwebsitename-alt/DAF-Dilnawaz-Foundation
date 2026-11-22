@@ -350,14 +350,32 @@
         </div>
       </section>
 
-      <!-- DONATE -->
+      <!-- DONATION SECTION -->
       <section class="donate-section" id="donate">
         <div class="donate-content">
           <span>BE A PART OF THE CHANGE</span>
           <h2>Small Contributions.<br>Lasting Impact.</h2>
-          <p>Your support helps us continue serving communities through food distribution, educational assistance and humanitarian initiatives.</p>
-          <a href="#contact" class="donate-button">Support Our Mission →</a>
-          <small>Contact the foundation for donation details.</small>
+          <p>Choose the cause you would like to support. The foundation's Easypaisa account details will appear after you select a donation category.</p>
+
+          <div class="donation-choices" aria-label="Choose a donation category">
+            <button type="button" class="donation-choice" data-donation="Ramzan Ration Drive">Ramzan Ration Drive</button>
+            <button type="button" class="donation-choice" data-donation="Iftar Boxes">Iftar Boxes</button>
+            <button type="button" class="donation-choice" data-donation="Monthly Food Drive">Monthly Food Drive</button>
+            <button type="button" class="donation-choice" data-donation="Madrasa Project">Madrasa Project</button>
+            <button type="button" class="donation-choice" data-donation="Roadside Drive of Hope">Roadside Drive of Hope</button>
+            <button type="button" class="donation-choice" data-donation="General Foundation Support">General Foundation Support</button>
+          </div>
+
+          <div class="donation-account" id="donationAccount" hidden aria-live="polite">
+            <h3 id="donationSelectedTitle">Donation details</h3>
+            <p>Thank you for supporting this initiative. You can send your donation to this Easypaisa account:</p>
+            <div class="easypaisa-account-row">
+              <strong id="easypaisaNumber">0311 1564396</strong>
+              <button type="button" id="copyEasypaisa" class="copy-account-button">Copy Number</button>
+            </div>
+            <small>Payment method: Easypaisa. Please verify the recipient details before confirming your transfer.</small>
+            <p class="donation-note">After sending your donation, keep your transaction receipt for your records.</p>
+          </div>
         </div>
       </section>
 
@@ -373,7 +391,7 @@
           <div class="contact-card">
             <span>✉</span>
             <h3>Email</h3>
-            <p>Official email address coming soon.</p>
+            <p><a href="mailto:DAF@gmail.com">DAF@gmail.com</a></p>
           </div>
           <div class="contact-card">
             <span>⌖</span>
@@ -406,9 +424,48 @@
 
       <div class="footer-bottom">
         © <span class="current-year"></span> Dilnawaz Ahmed Foundation. All Rights Reserved.
+        <p class="site-credit">Website designed and maintained by
+          <a href="https://httpwebsitename-alt.github.io/roshaanimran/#" target="_blank" rel="noopener noreferrer">Roshaan Imran</a>
+        </p>
       </div>
     </footer>
   </div>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const choices = document.querySelectorAll(".donation-choice");
+      const accountPanel = document.getElementById("donationAccount");
+      const selectedTitle = document.getElementById("donationSelectedTitle");
+      const copyButton = document.getElementById("copyEasypaisa");
+      const accountNumber = "03111564396";
+
+      choices.forEach(function (button) {
+        button.addEventListener("click", function () {
+          choices.forEach(function (item) {
+            item.classList.remove("active");
+            item.setAttribute("aria-pressed", "false");
+          });
+          button.classList.add("active");
+          button.setAttribute("aria-pressed", "true");
+          selectedTitle.textContent = "Donate to: " + button.dataset.donation;
+          accountPanel.hidden = false;
+          accountPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+      });
+
+      if (copyButton) {
+        copyButton.addEventListener("click", async function () {
+          try {
+            await navigator.clipboard.writeText(accountNumber);
+            copyButton.textContent = "Copied!";
+          } catch (error) {
+            copyButton.textContent = "Select number to copy";
+          }
+        });
+      }
+    });
+  </script>
 
   <script src="script.js"></script>
 </body>

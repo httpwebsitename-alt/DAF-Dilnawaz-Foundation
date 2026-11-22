@@ -1373,3 +1373,112 @@ img { max-width:100%; display:block; }
     grid-auto-rows: 170px;
   }
 }
+
+
+
+/* =========================================================
+   DAF DONATION CATEGORY + EASYPAISA ACCOUNT PANEL
+========================================================= */
+.donation-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 26px 0 20px;
+  max-width: 760px;
+}
+
+.donation-choice {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 15px 16px;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, background .2s ease, transform .2s ease;
+}
+
+.donation-choice:hover,
+.donation-choice:focus-visible,
+.donation-choice.active {
+  border-color: var(--secondary);
+  background: var(--surface);
+  transform: translateY(-2px);
+  outline: none;
+  box-shadow: 0 5px 18px rgba(20, 40, 30, .09);
+}
+
+.donation-account {
+  max-width: 760px;
+  margin-top: 22px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--secondary);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 12px 30px rgba(20, 40, 30, .08);
+}
+
+.donation-account[hidden] { display: none !important; }
+
+.donation-account h3 {
+  margin: 0 0 10px;
+  color: var(--primary);
+}
+
+.easypaisa-account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--background);
+}
+
+.easypaisa-account-row strong {
+  font-size: clamp(20px, 3vw, 27px);
+  letter-spacing: .04em;
+  color: var(--primary);
+}
+
+.copy-account-button {
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  background: var(--primary);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.copy-account-button:hover { filter: brightness(1.12); }
+
+.donation-note { margin: 12px 0 0; font-size: .92rem; }
+
+.site-credit {
+  margin: 12px 0 0;
+  font-size: .9rem;
+}
+
+.site-credit a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--secondary);
+  text-underline-offset: 4px;
+}
+
+.site-credit a:hover { color: var(--secondary); }
+
+@media (max-width: 600px) {
+  .donation-choices { grid-template-columns: 1fr; }
+  .donation-account { padding: 18px; }
+}
