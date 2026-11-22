@@ -666,7 +666,7 @@ img { max-width:100%; display:block; }
   max-width:none;
   padding-left:max(5%,calc((100% - var(--container))/2));
   padding-right:max(5%,calc((100% - var(--container))/2));
-  background:#eef1eb;
+  background:var(--background);
 }
 .project-grid {
   display:grid;
