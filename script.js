@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         try {
 
-            localStorage.setItem("dafIntroCompleted", "true");
+            sessionStorage.setItem("dafIntroCompleted", "true");
 
         } catch (error) {
 
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
         try {
 
             alreadyVisited =
-                localStorage.getItem("dafIntroCompleted") === "true";
+                sessionStorage.getItem("dafIntroCompleted") === "true";
 
         } catch (error) {
 
@@ -377,7 +377,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             showWebsite();
 
-        }, 7000);
+        }, 4800);
 
     }
 
