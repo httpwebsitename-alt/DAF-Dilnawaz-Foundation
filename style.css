@@ -1695,3 +1695,44 @@ img { max-width:100%; display:block; }
   }
   .intro-3d-stage { opacity: .5; }
 }
+
+
+
+/* =========================================================
+   THEME CONSISTENCY FIX — DONATION + FOOTER ONLY
+   These sections now use the currently selected theme colors.
+========================================================= */
+.donate-section {
+  background: linear-gradient(
+    135deg,
+    var(--primary-dark),
+    var(--primary)
+  ) !important;
+  color: #fff;
+}
+
+.main-footer {
+  background: var(--primary-dark) !important;
+  color: #fff;
+}
+
+.main-footer .footer-brand {
+  color: #fff;
+}
+
+.main-footer > p {
+  color: rgba(255,255,255,.78);
+}
+
+.main-footer .footer-links a {
+  color: rgba(255,255,255,.82);
+}
+
+.main-footer .footer-links a:hover {
+  color: var(--secondary);
+}
+
+.main-footer .footer-bottom {
+  border-top-color: color-mix(in srgb, #fff 22%, transparent);
+  color: rgba(255,255,255,.68);
+}
