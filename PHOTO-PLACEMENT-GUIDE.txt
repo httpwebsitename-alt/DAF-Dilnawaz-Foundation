@@ -1,0 +1,24 @@
+DAF PHOTO PLACEMENT GUIDE — AUTHENTIC USER PHOTOS ONLY
+
+All 10 images in this package came directly from the WhatsApp ZIP supplied by the foundation representative.
+No stock photos, web images, AI-generated images, people, objects, or scenes were added.
+
+SLIDER (4 selected photos):
+assets/slides/slide-01.jpg = WhatsApp photo 4 (shopping carts / grocery supplies)
+assets/slides/slide-02.jpg = WhatsApp photo 8 (prepared meal trays)
+assets/slides/slide-03.jpg = WhatsApp photo 7 (community meal gathering)
+assets/slides/slide-04.jpg = WhatsApp photo 10 (children / community)
+
+GALLERY (remaining 6):
+assets/gallery/gallery-01.jpg = WhatsApp photo 1
+assets/gallery/gallery-02.jpg = WhatsApp photo 2
+assets/gallery/gallery-03.jpg = WhatsApp photo 3
+assets/gallery/gallery-04.jpg = WhatsApp photo 5
+assets/gallery/gallery-05.jpg = WhatsApp photo 6 (classroom)
+assets/gallery/gallery-06.jpg = WhatsApp photo 9 (meal gathering)
+
+Editing applied: conservative brightness, contrast, colour and sharpness enhancement.
+Slider frame: each original portrait photo remains fully visible in the centre. The wider frame uses only a blurred enlargement of that same photograph as its background, not a separate/stock image.
+Gallery: original aspect ratios are retained; images are displayed with object-fit: contain.
+
+Upload the contents of this project folder to the repository root, replacing the existing files and adding the assets folder.

@@ -76,36 +76,39 @@
         <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Glimpses from our recent medical camps, volunteer drives, and community outreach.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Gallery Item 1 -->
-        <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 overflow-hidden group">
-          <div class="h-48 rounded-2xl bg-gradient-to-tr from-purple-800 to-indigo-900 flex items-center justify-center relative overflow-hidden">
-            <i data-lucide="image" class="w-12 h-12 text-white/40 group-hover:scale-110 transition-transform"></i>
-            <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] text-white font-medium">Health Camp 2026</span>
-          </div>
-          <h3 class="font-bold text-sm mt-4">Free Medical & Eye Checkup Camp</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Providing consultations and diagnostics in rural districts.</p>
-        </div>
+      <style>
+        .daf-gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; }
+        .daf-gallery-card { overflow:hidden; border-radius:22px; background:rgba(255,255,255,.78); border:1px solid rgba(25,55,45,.12); box-shadow:0 10px 28px rgba(20,40,30,.08); }
+        .daf-gallery-card img { display:block; width:100%; height:340px; object-fit:contain; background:#e9e8e2; }
+        .daf-gallery-card figcaption { padding:14px 16px; font-size:14px; font-weight:600; color:#24483c; }
+        @media(max-width:600px){ .daf-gallery-card img { height:300px; } }
+      </style>
 
-        <!-- Gallery Item 2 -->
-        <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 overflow-hidden group">
-          <div class="h-48 rounded-2xl bg-gradient-to-tr from-blue-800 to-cyan-900 flex items-center justify-center relative overflow-hidden">
-            <i data-lucide="image" class="w-12 h-12 text-white/40 group-hover:scale-110 transition-transform"></i>
-            <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] text-white font-medium">Ration Drive</span>
-          </div>
-          <h3 class="font-bold text-sm mt-4">Community Food & Supplies Distribution</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Supporting deserving families with essential ration packages.</p>
-        </div>
-
-        <!-- Gallery Item 3 -->
-        <div class="bg-white/70 dark:bg-[#161927]/70 backdrop-blur-xl border border-slate-200/80 dark:border-white/10 rounded-3xl p-4 overflow-hidden group">
-          <div class="h-48 rounded-2xl bg-gradient-to-tr from-pink-800 to-rose-900 flex items-center justify-center relative overflow-hidden">
-            <i data-lucide="image" class="w-12 h-12 text-white/40 group-hover:scale-110 transition-transform"></i>
-            <span class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] text-white font-medium">Volunteer Meet</span>
-          </div>
-          <h3 class="font-bold text-sm mt-4">Annual Volunteer & Doctor Orientation</h3>
-          <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Briefing medical professionals on upcoming surgical drives.</p>
-        </div>
+      <div class="daf-gallery-grid">
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-01.jpg" alt="Foundation ration packages arranged for distribution" loading="lazy">
+          <figcaption>Ration Packages</figcaption>
+        </figure>
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-02.jpg" alt="Food boxes prepared for distribution" loading="lazy">
+          <figcaption>Prepared Food Boxes</figcaption>
+        </figure>
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-03.jpg" alt="Food packages prepared for community support" loading="lazy">
+          <figcaption>Food Preparation</figcaption>
+        </figure>
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-04.jpg" alt="Roadside humanitarian food support" loading="lazy">
+          <figcaption>Roadside Support</figcaption>
+        </figure>
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-05.jpg" alt="Students in a classroom setting" loading="lazy">
+          <figcaption>Educational Support</figcaption>
+        </figure>
+        <figure class="daf-gallery-card">
+          <img src="assets/gallery/gallery-06.jpg" alt="Community members sharing a meal" loading="lazy">
+          <figcaption>Community Meal</figcaption>
+        </figure>
       </div>
     </main>
   </div>

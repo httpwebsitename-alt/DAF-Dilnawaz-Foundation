@@ -1201,3 +1201,126 @@ img { max-width:100%; display:block; }
     transition-duration:.01ms !important;
   }
 }
+
+
+
+/* =========================================================
+   DAF HERO SLIDER PATCH
+   - Keeps the One Mission card below the slide caption
+   - Provides ready-to-use image paths for the three slides
+========================================================= */
+
+/* Keep the floating card outside the slide's text area. */
+.hero-visual {
+  position: relative;
+  overflow: visible;
+}
+
+.hero-floating-card {
+  left: 18px;
+  bottom: -22px;
+  transform: none;
+  z-index: 7;
+}
+
+/* Use these image filenames when the foundation photos are supplied.
+   The gradient remains as a fallback until the photos are added. */
+.slide-one {
+  background:
+    linear-gradient(135deg, rgba(13, 44, 37, .22), rgba(13, 44, 37, .58)),
+    url("assets/slides/slide-01.jpg") center / cover no-repeat,
+    radial-gradient(circle at 25% 25%, #d2c5a4, transparent 35%),
+    linear-gradient(135deg, #9aab91, #315c49);
+}
+
+.slide-two {
+  background:
+    linear-gradient(135deg, rgba(45, 31, 18, .18), rgba(45, 31, 18, .58)),
+    url("assets/slides/slide-02.jpg") center / cover no-repeat,
+    radial-gradient(circle at 75% 25%, #e5d1a7, transparent 35%),
+    linear-gradient(135deg, #c7a77a, #775339);
+}
+
+.slide-three {
+  background:
+    linear-gradient(135deg, rgba(25, 43, 54, .18), rgba(25, 43, 54, .58)),
+    url("assets/slides/slide-03.jpg") center / cover no-repeat,
+    radial-gradient(circle at 25% 25%, #c5d0d3, transparent 35%),
+    linear-gradient(135deg, #91a7b4, #344f62);
+}
+
+/* Ensure slide text remains readable over real photographs. */
+.slide-caption {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .28);
+}
+
+/* Responsive placement: card stays below the slide and never covers text. */
+@media (max-width: 760px) {
+  .hero-floating-card {
+    left: 12px;
+    bottom: -18px;
+    transform: none;
+    padding: 12px 15px;
+  }
+
+  .hero-slider {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  .hero-floating-card {
+    left: 12px;
+    bottom: -18px;
+    transform: none;
+  }
+}
+
+
+
+/* =========================================================
+   DAF REAL FOUNDATION PHOTOS - FINAL SLIDER/GALLERY
+   All photographs are from the user's supplied WhatsApp ZIP.
+========================================================= */
+.hero-visual {
+  position: relative;
+  overflow: visible;
+  padding-bottom: 36px;
+}
+
+.hero-slider { position: relative; z-index: 1; }
+
+.hero-floating-card {
+  left: 18px !important;
+  right: auto !important;
+  bottom: 0 !important;
+  top: auto !important;
+  transform: none !important;
+  z-index: 6;
+}
+
+.slide-one { background: url("assets/slides/slide-01.jpg") center / cover no-repeat; }
+.slide-two { background: url("assets/slides/slide-02.jpg") center / cover no-repeat; }
+.slide-three { background: url("assets/slides/slide-03.jpg") center / cover no-repeat; }
+.slide-four { background: url("assets/slides/slide-04.jpg") center / cover no-repeat; }
+
+.slide-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.slide-caption {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 14px rgba(0,0,0,.35);
+}
+
+@media (max-width: 760px) {
+  .hero-visual { padding-bottom: 72px; }
+  .hero-floating-card {
+    left: 12px !important;
+    bottom: 12px !important;
+    max-width: calc(100% - 24px);
+  }
+}
